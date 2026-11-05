@@ -53,9 +53,9 @@ function SkillFrame({
 
   return (
     <span
-      className={`block overflow-hidden rounded-[0.7cqw] border-[0.08cqw] border-black/70 p-[0.4cqw] transition-[background-color,box-shadow,filter] duration-200 ${
+      className={`shine block rounded-[0.7cqw] border-[0.08cqw] border-black/70 p-[0.4cqw] transition-[background-color,box-shadow,filter] duration-200 ${
         active
-          ? "shadow-[0_0_1.2cqw_rgb(251_191_36/0.6)]"
+          ? "shadow-[0_0_1.2cqw_rgb(251_191_36/0.6)] motion-safe:before:animate-[sweep_0.9s_ease-out]"
           : "shadow-[0_0.2cqw_0.5cqw_rgb(0_0_0/0.6)]"
       } ${className}`}
       style={{ backgroundColor: color.outer }}
@@ -95,14 +95,26 @@ export default function CharacterCard({
   const t = useTranslations("Character");
   const [idx, setIdx] = useState(0);
   const skill = c.skills[idx];
+  const el = c.element.color;
+  const rise = (i: number) => ({ "--rise-i": i }) as React.CSSProperties;
 
   return (
     <div className="grid h-full grid-cols-[1fr_auto_1fr] gap-[1.5cqw] p-[2.5cqw] text-[1.15cqw] text-slate-200">
       {/* Thông tin */}
-      <section className="panel flex flex-col items-center overflow-y-auto">
+      <section
+        data-rise
+        style={rise(0)}
+        className="panel flex flex-col items-center overflow-y-auto"
+      >
         {/* Avatar + vòng aura phía sau */}
         {/* mask: trên rõ (opacity 1) → dưới trong suốt (opacity 0), che phần aura và avatar lòi xuống */}
         <div className="relative grid aspect-square w-[16cqw] shrink-0 place-items-center [mask-image:linear-gradient(to_bottom,black_55%,transparent_100%)]">
+          {/* Quầng sáng theo màu hệ */}
+          <span
+            aria-hidden
+            className="absolute inset-[20%] rounded-full blur-[2cqw] motion-safe:animate-pulse-glow"
+            style={{ backgroundColor: `${el}55` }}
+          />
           <img
             src={img("aura.webp")}
             alt=""
@@ -112,7 +124,7 @@ export default function CharacterCard({
           <img
             src={c.avatar}
             alt={c.name}
-            className="relative h-[12cqw] w-auto drop-shadow-[0_0.4cqw_0.8cqw_rgb(0_0_0/0.7)]"
+            className="relative h-[12cqw] w-auto drop-shadow-[0_0.4cqw_0.8cqw_rgb(0_0_0/0.7)] motion-safe:animate-float"
           />
         </div>
 
@@ -129,7 +141,13 @@ export default function CharacterCard({
         </div>
 
         {/* Hệ */}
-        <p className="mt-[0.9cqw] inline-flex items-center gap-[0.5cqw] rounded-[0.6cqw] border-[0.08cqw] border-white/15 bg-black/40 px-[1.2cqw] py-[0.4cqw] shadow-[inset_0_0.08cqw_0_rgb(255_255_255/0.08)]">
+        <p
+          className="mt-[0.9cqw] inline-flex items-center gap-[0.5cqw] rounded-[0.6cqw] border-[0.08cqw] bg-black/40 px-[1.2cqw] py-[0.4cqw]"
+          style={{
+            borderColor: `${el}66`,
+            boxShadow: `0 0 1cqw ${el}33, inset 0 0.08cqw 0 rgb(255 255 255 / 0.08)`,
+          }}
+        >
           <img src={c.element.icon} alt="" className="h-[1.4cqw]" />
           {t("element")}:
           <span className="font-semibold" style={{ color: c.element.color }}>
@@ -145,7 +163,7 @@ export default function CharacterCard({
       </section>
 
       {/* Lưới kỹ năng */}
-      <section className="panel self-center">
+      <section data-rise style={rise(1)} className="panel self-center">
         <div className="swiper-no-swiping grid grid-cols-[repeat(3,6.5cqw)] gap-[1.2cqw]">
           {c.skills.map((s, i) => (
             <button
@@ -169,38 +187,41 @@ export default function CharacterCard({
 
       {/* Chi tiết kỹ năng */}
       {skill && (
-        <section className="panel">
-          <div className="flex items-center gap-[1.2cqw]">
-            <SkillFrame
-              src={skill.icon}
-              alt={skill.name}
-              active
-              className="w-[7cqw] shrink-0"
-            />
-            <div className="min-w-0 flex-1">
-              <h3
-                title={skill.name}
-                className="truncate text-[1.75cqw] font-bold leading-tight text-amber-200"
-              >
-                {skill.name}
-              </h3>
-              <div className="mt-[0.6cqw] flex flex-nowrap gap-[0.6cqw]">
-                <StatChip
-                  icon={ICONS.cooldown}
-                  label={t("cooldown")}
-                  value={`${t("cooldownShort")}: ${skill.cooldown}s`}
-                  className="border-fuchsia-300/40 bg-fuchsia-950/70 text-fuchsia-100"
-                />
-                <StatChip
-                  icon={ICONS.mana}
-                  label={t("mana")}
-                  value={`${t("mana")}: ${skill.mana}`}
-                  className="border-sky-300/40 bg-sky-950/70 text-sky-100"
-                />
+        <section data-rise style={rise(2)} className="panel">
+          {/* key đổi theo kỹ năng → nội dung hiện dần mỗi lần chọn kỹ năng khác */}
+          <div key={skill.id} className="motion-safe:animate-fade-in">
+            <div className="flex items-center gap-[1.2cqw]">
+              <SkillFrame
+                src={skill.icon}
+                alt={skill.name}
+                active
+                className="w-[7cqw] shrink-0"
+              />
+              <div className="min-w-0 flex-1">
+                <h3
+                  title={skill.name}
+                  className="truncate text-[1.75cqw] font-bold leading-tight text-amber-200"
+                >
+                  {skill.name}
+                </h3>
+                <div className="mt-[0.6cqw] flex flex-nowrap gap-[0.6cqw]">
+                  <StatChip
+                    icon={ICONS.cooldown}
+                    label={t("cooldown")}
+                    value={`${t("cooldownShort")}: ${skill.cooldown}s`}
+                    className="border-fuchsia-300/40 bg-fuchsia-950/70 text-fuchsia-100"
+                  />
+                  <StatChip
+                    icon={ICONS.mana}
+                    label={t("mana")}
+                    value={`${t("mana")}: ${skill.mana}`}
+                    className="border-sky-300/40 bg-sky-950/70 text-sky-100"
+                  />
+                </div>
               </div>
             </div>
+            <p className="mt-[1.2cqw] leading-snug">{skill.desc}</p>
           </div>
-          <p className="mt-[1.2cqw] leading-snug">{skill.desc}</p>
         </section>
       )}
     </div>

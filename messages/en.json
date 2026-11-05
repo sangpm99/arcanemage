@@ -1,6 +1,8 @@
 {
   "Home": {
+    "eyebrow": "ArcaneMage Wiki",
     "title": "Characters",
+    "subtitle": "Discover {count} characters, their elements and skills",
     "musicOn": "Music on",
     "musicOff": "Music off"
   },

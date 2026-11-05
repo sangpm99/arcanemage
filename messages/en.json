@@ -1,0 +1,27 @@
+{
+  "Home": {
+    "title": "Characters"
+  },
+  "Nav": {
+    "home": "Home",
+    "characters": "Characters",
+    "equipment": "Equipment",
+    "story": "Story",
+    "mods": "Mods",
+    "community": "Community",
+    "support": "Feedback & Support",
+    "language": "Language",
+    "menu": "Open menu",
+    "menuTitle": "Menu",
+    "close": "Close"
+  },
+  "Character": {
+    "element": "Element",
+    "traits": "Traits",
+    "buffs": "Buffs",
+    "skills": "Skills",
+    "cooldown": "Cooldown",
+    "cooldownShort": "CD",
+    "mana": "Mana"
+  }
+}

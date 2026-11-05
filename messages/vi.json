@@ -1,0 +1,27 @@
+{
+  "Home": {
+    "title": "Nhân vật"
+  },
+  "Nav": {
+    "home": "Trang chủ",
+    "characters": "Nhân vật",
+    "equipment": "Trang bị",
+    "story": "Cốt truyện",
+    "mods": "Cài mod",
+    "community": "Cộng đồng",
+    "support": "Góp ý & Ủng hộ",
+    "language": "Ngôn ngữ",
+    "menu": "Mở menu",
+    "menuTitle": "Danh mục",
+    "close": "Đóng"
+  },
+  "Character": {
+    "element": "Hệ",
+    "traits": "Đặc tính",
+    "buffs": "Buffs",
+    "skills": "Kỹ năng",
+    "cooldown": "Hồi chiêu",
+    "cooldownShort": "CD",
+    "mana": "Mana"
+  }
+}

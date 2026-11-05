@@ -8,8 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +18,35 @@
   }
 }
 
+/* Khung nội dung dùng chung cho header, main, footer */
+@utility page-container {
+  width: 100%;
+  max-width: 80rem;          /* 1280px trên màn lớn */
+  margin-inline: auto;
+  padding-inline: 1rem;      /* mobile: 16px mỗi bên */
+
+  @variant sm {
+    padding-inline: 1.5rem;  /* tablet (≥640px): 24px */
+  }
+  @variant lg {
+    padding-inline: 2rem;    /* PC (≥1024px): 32px */
+  }
+}
+
+@utility panel {
+  border-radius: 0.8cqw;
+  border: 0.12cqw solid rgb(180 83 9 / 0.4);
+  background: rgb(0 0 0 / 0.55);
+  padding: 1.5cqw;
+  backdrop-filter: blur(4px);
+}
+
+html {
+  /* Giữ sẵn chỗ cho thanh cuộn để trang không bị xô ngang khi mở/đóng drawer */
+  scrollbar-gutter: stable;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

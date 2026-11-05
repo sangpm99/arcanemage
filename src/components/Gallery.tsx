@@ -8,6 +8,8 @@ import type { Character } from "@/data";
 
 import CharacterCard from "@/components/CharacterCard";
 
+import { img } from "@/lib/cdn";
+
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -25,7 +27,9 @@ export default function Gallery({ items }: GalleryProps) {
       {/* Khung lớn */}
       <div
         className="@container relative mb-3 aspect-[1672/941] w-full overflow-hidden rounded-lg bg-cover bg-center"
-        style={{ backgroundImage: "url(/character-background-slide.webp)" }}
+        style={{
+          backgroundImage: `url("${img("character-background-slide.webp")}")`,
+        }}
       >
         <Swiper
           modules={[Navigation, Thumbs]}

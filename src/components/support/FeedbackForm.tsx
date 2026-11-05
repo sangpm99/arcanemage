@@ -1,7 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { sendFeedback, type FeedbackState } from "@/app/[locale]/support/actions";
 import { FEEDBACK_MAX, MATH_PROBLEMS } from "@/data/feedback";
 import { SupportIcon } from "./SupportIcon";
@@ -20,7 +20,11 @@ const fieldClass = `w-full ${fieldBase}`;
 
 export default function FeedbackForm() {
   const t = useTranslations("Support");
-  const [state, action, pending] = useActionState(sendFeedback, initial);
+  const locale = useLocale();
+  const [state, action, pending] = useActionState(
+    sendFeedback.bind(null, locale),
+    initial
+  );
   const [mathId, setMathId] = useState(0);
   const [formKey, setFormKey] = useState(0);
   const [length, setLength] = useState(0);

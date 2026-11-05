@@ -2,7 +2,10 @@
 
 import { headers } from "next/headers";
 import nodemailer from "nodemailer";
-import { getTranslations } from "next-intl/server";
+import { createTranslator, hasLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
+import vi from "../../../../messages/vi.json";
+import en from "../../../../messages/en.json";
 import { FEEDBACK_MAX, MATH_PROBLEMS } from "@/data/feedback";
 
 export type FeedbackState = {
@@ -49,7 +52,13 @@ function layout(title: string, body: string) {
   </div></body></html>`;
 }
 
+/**
+ * Lưu ý: không dùng getTranslations() ở đây vì next-intl đọc locale qua
+ * next/root-params, mà Next không cho gọi trong Server Action.
+ * Client truyền locale vào (bind) → dùng createTranslator với messages tĩnh.
+ */
 export async function sendFeedback(
+  rawLocale: string,
   _prev: FeedbackState,
   formData: FormData
 ): Promise<FeedbackState> {
@@ -83,7 +92,12 @@ export async function sendFeedback(
   }
   const owner = process.env.FEEDBACK_TO || user;
 
-  const t = await getTranslations("Support.mail");
+  const locale = hasLocale(routing.locales, rawLocale) ? rawLocale : routing.defaultLocale;
+  const t = createTranslator({
+    locale,
+    messages: locale === "en" ? en : vi,
+    namespace: "Support.mail",
+  });
   const safe = escapeHtml(content).replace(/\n/g, "<br>");
 
   try {

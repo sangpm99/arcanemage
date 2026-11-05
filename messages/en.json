@@ -10,6 +10,7 @@
     "home": "Home",
     "characters": "Characters",
     "items": "Items",
+    "features": "Features",
     "story": "Story",
     "mods": "Mods",
     "community": "Community",
@@ -72,5 +73,18 @@
     "usedIn": "Used to craft",
     "close": "Close",
     "viewDetail": "View details"
+  },
+  "Features": {
+    "eyebrow": "ArcaneMage Wiki",
+    "title": "Features",
+    "subtitle": "An overview and guide to ArcaneMage's signature features.",
+    "searchPlaceholder": "Search features...",
+    "clearSearch": "Clear search",
+    "noResults": "No features match \"{query}\"",
+    "viewItem": "View Mana Stone on the Items page",
+    "categories": {
+      "worldEvent": "World event",
+      "pve": "PvE activity"
+    }
   }
 }

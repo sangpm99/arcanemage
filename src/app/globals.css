@@ -643,6 +643,70 @@
   scrollbar-color: rgb(217 164 65 / 0.45) transparent;
 }
 
+/* ===================================================================
+   TRANG TÍNH NĂNG (v1.4.0)
+   =================================================================== */
+
+/* Viên ngọc vàng giữa cạnh trên của thẻ tính năng */
+@utility feature-gem {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  z-index: 20;
+  width: 13px;
+  height: 13px;
+  translate: -50% 0;
+  rotate: 45deg;
+  border: 1px solid #ffe7a6;
+  background: linear-gradient(135deg, #ffe7a6, #c98a2a);
+  box-shadow: 0 0 10px rgb(245 180 70 / 0.8);
+  pointer-events: none;
+}
+
+/* Ô hiệu ứng (HP giảm, Rơi Ma thạch...) */
+@utility perk-tile {
+  display: block;
+  height: 100%;
+  border-radius: 12px;
+  border: 1px solid rgb(255 255 255 / 0.09);
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 0%, rgb(124 58 237 / 0.12), transparent 70%),
+    rgb(8 5 18 / 0.55);
+  padding: 14px 10px 12px;
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    translate 0.25s;
+
+  &:hover,
+  &:focus-visible {
+    translate: 0 -3px;
+    border-color: rgb(217 164 65 / 0.55);
+    box-shadow:
+      0 0 16px rgb(245 180 70 / 0.18),
+      inset 0 1px 0 rgb(255 255 255 / 0.06);
+    outline: none;
+  }
+}
+
+/* Cảnh thay thế khi chưa có ảnh: trăng máu */
+@utility feature-scene-blood {
+  background:
+    radial-gradient(circle at 68% 30%, #ff8a7a 0 9%, #d1282c 15%, rgb(160 20 30 / 0.55) 24%, transparent 42%),
+    radial-gradient(ellipse 120% 60% at 50% 110%, rgb(30 4 10) 40%, transparent 70%),
+    linear-gradient(180deg, #4a0d1a 0%, #2a0712 55%, #12040a 100%);
+}
+
+/* Cảnh thay thế khi chưa có ảnh: cổng hầm ngục tím */
+@utility feature-scene-arcane {
+  background:
+    radial-gradient(ellipse 22% 34% at 50% 58%, #e9d5ff 0, #a855f7 30%, rgb(109 40 217 / 0.6) 55%, transparent 75%),
+    radial-gradient(ellipse 120% 60% at 50% 110%, rgb(8 4 20) 40%, transparent 70%),
+    linear-gradient(180deg, #2b1650 0%, #1a0d33 55%, #0b0616 100%);
+}
+
 html {
   /* Giữ sẵn chỗ cho thanh cuộn để trang không bị xô ngang khi mở/đóng drawer */
   scrollbar-gutter: stable;

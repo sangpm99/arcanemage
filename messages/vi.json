@@ -10,6 +10,7 @@
     "home": "Trang chủ",
     "characters": "Nhân vật",
     "items": "Vật phẩm",
+    "features": "Tính năng",
     "story": "Cốt truyện",
     "mods": "Cài mod",
     "community": "Cộng đồng",
@@ -72,5 +73,18 @@
     "usedIn": "Dùng để chế tạo",
     "close": "Đóng",
     "viewDetail": "Xem chi tiết"
+  },
+  "Features": {
+    "eyebrow": "ArcaneMage Wiki",
+    "title": "Tính năng",
+    "subtitle": "Tổng hợp và hướng dẫn các tính năng đặc sắc trong ArcaneMage.",
+    "searchPlaceholder": "Tìm tính năng...",
+    "clearSearch": "Xóa tìm kiếm",
+    "noResults": "Không tìm thấy tính năng nào khớp với \"{query}\"",
+    "viewItem": "Xem Ma thạch trong trang Vật phẩm",
+    "categories": {
+      "worldEvent": "Sự kiện thế giới",
+      "pve": "Hoạt động PvE"
+    }
   }
 }

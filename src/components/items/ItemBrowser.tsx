@@ -7,18 +7,9 @@ import { ITEM_CATEGORIES, type ItemCategory } from "@/data/items";
 import ItemArt from "./ItemArt";
 import ItemDetail from "./ItemDetail";
 import { CATEGORY_ICON, Icon } from "./icons";
+import { normalize } from "@/lib/text";
 
 type Filter = "all" | ItemCategory;
-
-/** Bỏ dấu tiếng Việt + chữ thường: "Trượng Thần" → "truong than" */
-const normalize = (s: string) =>
-  s
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/đ/g, "d")
-    .replace(/Đ/g, "D")
-    .toLowerCase()
-    .trim();
 
 const isMobile = () => window.matchMedia("(width < 64rem)").matches;
 

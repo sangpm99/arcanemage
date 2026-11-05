@@ -97,5 +97,63 @@
     "lockedTagline": "Bí mật chưa được khám phá",
     "collapse": "Thu gọn",
     "expand": "Mở rộng"
+  },
+  "Guild": {
+    "eyebrow": "ArcaneMage Wiki",
+    "title": "Hội quán",
+    "subtitle": "Hướng dẫn, hỗ trợ và cộng đồng {mod}",
+    "modName": "Ma Pháp Khai Nguyên",
+    "guide": {
+      "title": "Hướng dẫn cài mod",
+      "sub": "Các bước cài {mod} cho Don't Starve Together.",
+      "cta": "Mở Steam Workshop"
+    },
+    "steps": {
+      "subscribe": {
+        "title": "Đăng ký mod",
+        "desc": "Mở trang Steam Workshop của mod và bấm Subscribe. Steam sẽ tự tải về."
+      },
+      "enable": {
+        "title": "Bật mod trong game",
+        "desc": "Ở menu chính chọn Mods, tìm {mod} và bật."
+      },
+      "world": {
+        "title": "Tạo hoặc mở thế giới",
+        "desc": "Khi tạo thế giới, vào tab Mods của thế giới và bật mod này."
+      },
+      "friends": {
+        "title": "Chơi cùng bạn bè",
+        "desc": "Mod yêu cầu tất cả người chơi đều dùng mod, nên game sẽ tự tải mod cho bạn bè khi họ vào phòng."
+      }
+    },
+    "visual": {
+      "subscribe": "Subscribe",
+      "createWorld": "Tạo thế giới",
+      "mods": "Mods"
+    },
+    "compat": {
+      "title": "Lưu ý tương thích",
+      "desc": "{mod} không tương thích với các mod thêm nhân vật khác ngoài 18 nhân vật gốc của game. Hãy tắt những mod đó trước khi chơi."
+    },
+    "faqTitle": "Hỏi đáp",
+    "faq": {
+      "autoDownload": {
+        "q": "Máy khách tham gia vào máy chủ khác có phải tự cài mod không?",
+        "a": "Thông thường game sẽ tự tải mod khi họ vào phòng, miễn là mod đã được bật trên thế giới."
+      },
+      "notShowing": {
+        "q": "Mod không hiện ra?",
+        "a": "Kiểm tra mod đã Subscribe và Steam đã tải xong. Thoát game và vào lại."
+      },
+      "otherCharacters": {
+        "q": "Có dùng chung với mod nhân vật khác được không?",
+        "a": "Không. {mod} chỉ tương thích với 18 nhân vật gốc của game, hãy tắt các mod thêm nhân vật khác."
+      }
+    },
+    "community": {
+      "title": "Cộng đồng",
+      "desc": "Tham gia Discord để hỏi đáp, báo lỗi và góp ý cho mod.",
+      "cta": "Tham gia Discord"
+    }
   }
 }

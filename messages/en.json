@@ -97,5 +97,63 @@
     "lockedTagline": "A secret yet to be discovered",
     "collapse": "Collapse",
     "expand": "Expand"
+  },
+  "Guild": {
+    "eyebrow": "ArcaneMage Wiki",
+    "title": "Guild Hall",
+    "subtitle": "Guides, support and the {mod} community",
+    "modName": "Ma Pháp Khai Nguyên",
+    "guide": {
+      "title": "Mod installation guide",
+      "sub": "How to install {mod} for Don't Starve Together.",
+      "cta": "Open Steam Workshop"
+    },
+    "steps": {
+      "subscribe": {
+        "title": "Subscribe to the mod",
+        "desc": "Open the mod's Steam Workshop page and click Subscribe. Steam will download it automatically."
+      },
+      "enable": {
+        "title": "Enable the mod in game",
+        "desc": "From the main menu choose Mods, find {mod} and enable it."
+      },
+      "world": {
+        "title": "Create or open a world",
+        "desc": "When creating a world, open the world's Mods tab and enable this mod."
+      },
+      "friends": {
+        "title": "Play with friends",
+        "desc": "Every player needs the mod, so the game downloads it for your friends automatically when they join."
+      }
+    },
+    "visual": {
+      "subscribe": "Subscribe",
+      "createWorld": "Create World",
+      "mods": "Mods"
+    },
+    "compat": {
+      "title": "Compatibility note",
+      "desc": "{mod} is not compatible with mods that add characters beyond the game's 18 original characters. Disable those mods before playing."
+    },
+    "faqTitle": "FAQ",
+    "faq": {
+      "autoDownload": {
+        "q": "Do players joining someone else's server need to install the mod?",
+        "a": "Usually not: the game downloads the mod when they join, as long as it is enabled on that world."
+      },
+      "notShowing": {
+        "q": "The mod doesn't show up?",
+        "a": "Make sure you are subscribed and Steam has finished downloading. Restart the game."
+      },
+      "otherCharacters": {
+        "q": "Can I use it with other character mods?",
+        "a": "No. {mod} only supports the game's 18 original characters, so disable any mods that add other characters."
+      }
+    },
+    "community": {
+      "title": "Community",
+      "desc": "Join our Discord to ask questions, report bugs and share feedback on the mod.",
+      "cta": "Join Discord"
+    }
   }
 }

@@ -801,6 +801,98 @@
   user-select: none;
 }
 
+/* ===================================================================
+   TRANG HỘI QUÁN (v1.7.0)
+   =================================================================== */
+
+/* Thẻ một bước cài mod */
+@utility guild-step {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 14px;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  background:
+    radial-gradient(ellipse 60% 120% at 0% 50%, rgb(124 58 237 / 0.14), transparent 70%),
+    rgb(8 5 18 / 0.5);
+  padding: 12px 14px;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s;
+
+  &:hover {
+    border-color: rgb(217 164 65 / 0.5);
+    box-shadow: 0 0 16px rgb(245 180 70 / 0.14);
+  }
+}
+
+/* Câu hỏi thường gặp */
+@utility faq-item {
+  border-radius: 12px;
+  border: 1px solid rgb(255 255 255 / 0.08);
+  background: rgb(8 5 18 / 0.5);
+  padding: 14px 16px;
+  transition: border-color 0.25s;
+
+  &[open],
+  &:hover {
+    border-color: rgb(217 164 65 / 0.4);
+  }
+}
+
+/* Nút vàng lớn (Mở Steam Workshop) */
+@utility gold-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  border-radius: 9999px;
+  border: 1.5px solid var(--gold);
+  background: linear-gradient(180deg, rgb(74 48 22 / 0.75), rgb(32 20 12 / 0.9));
+  padding: 12px 28px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #f8cf6a;
+  box-shadow:
+    0 0 18px rgb(245 180 70 / 0.35),
+    inset 0 0 12px rgb(245 180 70 / 0.2);
+  transition:
+    box-shadow 0.25s,
+    translate 0.25s,
+    color 0.25s;
+
+  &:hover {
+    translate: 0 -2px;
+    color: #fff1c4;
+    box-shadow:
+      0 0 28px rgb(245 180 70 / 0.55),
+      inset 0 0 14px rgb(245 180 70 / 0.3);
+  }
+}
+
+/* Nút Discord tím */
+@utility discord-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  border-radius: 9999px;
+  border: 1.5px solid rgb(165 173 255 / 0.7);
+  background: linear-gradient(180deg, rgb(88 101 242 / 0.35), rgb(40 30 90 / 0.6));
+  padding: 10px 22px;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: 0 0 16px rgb(88 101 242 / 0.4);
+  transition:
+    box-shadow 0.25s,
+    translate 0.25s;
+
+  &:hover {
+    translate: 0 -2px;
+    box-shadow: 0 0 26px rgb(88 101 242 / 0.65);
+  }
+}
+
 html {
   /* Giữ sẵn chỗ cho thanh cuộn để trang không bị xô ngang khi mở/đóng drawer */
   scrollbar-gutter: stable;

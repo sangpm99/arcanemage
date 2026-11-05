@@ -12,8 +12,7 @@ const NAV = [
   { href: "/items", key: "items" },
   { href: "/features", key: "features" },
   { href: "/story", key: "story" },
-  { href: "/mods", key: "mods" },
-  { href: "/community", key: "community" },
+  { href: "/guild", key: "guild" },
   { href: "/support", key: "support" },
 ] as const;
 

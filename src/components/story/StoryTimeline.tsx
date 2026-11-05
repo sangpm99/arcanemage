@@ -57,8 +57,7 @@ function TrialCard({ trial, index }: { trial: StoryTrial; index: number }) {
       <TrialMedia trial={trial} />
 
       <div className="relative -mt-7 px-3 pb-3">
-        <h3 className="flex items-center gap-2 text-lg font-bold text-[#f8cf6a] drop-shadow-[0_2px_4px_rgb(0_0_0/0.8)]">
-          <StoryIcon name={trial.icon} className="size-6 shrink-0 text-sky-300 drop-shadow-[0_0_6px_currentColor]" />
+        <h3 className="text-lg font-bold text-[#f8cf6a] drop-shadow-[0_2px_4px_rgb(0_0_0/0.8)]">
           {trial.name}
         </h3>
 

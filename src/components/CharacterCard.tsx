@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import type { Character } from "@/data";
-import { ICONS } from "@/lib/cdn";
+import { ICONS, img } from "@/lib/cdn";
 
 function StatChip({
   icon,
@@ -97,25 +97,56 @@ export default function CharacterCard({
   const skill = c.skills[idx];
 
   return (
-    <div className="grid h-full grid-cols-[1fr_0.8fr_1fr] gap-[1.5cqw] p-[2.5cqw] text-[1.15cqw] text-slate-200">
+    <div className="grid h-full grid-cols-[1fr_auto_1fr] gap-[1.5cqw] p-[2.5cqw] text-[1.15cqw] text-slate-200">
       {/* Thông tin */}
-      <section className="panel">
-        <img src={c.avatar} alt={c.name} className="h-[12cqw] w-auto" />
-        <h2 className="mt-[1cqw] text-[2.4cqw] font-bold text-amber-200">
+      <section className="panel flex flex-col items-center overflow-y-auto">
+        {/* Avatar + vòng aura phía sau */}
+        {/* mask: trên rõ (opacity 1) → dưới trong suốt (opacity 0), che phần aura và avatar lòi xuống */}
+        <div className="relative grid aspect-square w-[16cqw] shrink-0 place-items-center [mask-image:linear-gradient(to_bottom,black_55%,transparent_100%)]">
+          <img
+            src={img("aura.webp")}
+            alt=""
+            aria-hidden
+            className="pointer-events-none absolute inset-0 h-full w-full object-contain opacity-90 motion-safe:animate-[spin_40s_linear_infinite]"
+          />
+          <img
+            src={c.avatar}
+            alt={c.name}
+            className="relative h-[12cqw] w-auto drop-shadow-[0_0.4cqw_0.8cqw_rgb(0_0_0/0.7)]"
+          />
+        </div>
+
+        {/* Tên */}
+        <h2 className="mt-[0.4cqw] bg-linear-to-b from-[#fff3c8] to-[#e0a845] bg-clip-text text-center text-[2.6cqw] font-extrabold leading-tight text-transparent drop-shadow-[0_0_0.6cqw_rgb(245_180_70/0.45)]">
           {c.name}
         </h2>
-        <p className="mt-[0.5cqw] flex items-center gap-[0.5cqw]">
-          {t("element")}:
+
+        {/* Đường trang trí dưới tên */}
+        <div className="mt-[0.5cqw] flex w-[70%] items-center gap-[0.6cqw]">
+          <span className="h-[0.1cqw] flex-1 bg-linear-to-r from-transparent to-[#d9a441]" />
+          <span className="size-[0.6cqw] rotate-45 bg-[#f5c46b] shadow-[0_0_0.5cqw_rgb(245_196_107/0.9)]" />
+          <span className="h-[0.1cqw] flex-1 bg-linear-to-l from-transparent to-[#d9a441]" />
+        </div>
+
+        {/* Hệ */}
+        <p className="mt-[0.9cqw] inline-flex items-center gap-[0.5cqw] rounded-[0.6cqw] border-[0.08cqw] border-white/15 bg-black/40 px-[1.2cqw] py-[0.4cqw] shadow-[inset_0_0.08cqw_0_rgb(255_255_255/0.08)]">
           <img src={c.element.icon} alt="" className="h-[1.4cqw]" />
-          <span style={{ color: c.element.color }}>{c.element.name}</span>
+          {t("element")}:
+          <span className="font-semibold" style={{ color: c.element.color }}>
+            {c.element.name}
+          </span>
         </p>
-        <InfoList title={t("traits")} items={c.traits} />
-        <InfoList title={t("buffs")} items={c.buffs} />
+
+        {/* Đặc tính, buff: căn trái */}
+        <div className="w-full">
+          <InfoList title={t("traits")} items={c.traits} />
+          <InfoList title={t("buffs")} items={c.buffs} />
+        </div>
       </section>
 
       {/* Lưới kỹ năng */}
-      <section className="panel">
-        <div className="swiper-no-swiping grid grid-cols-3 gap-[1.2cqw]">
+      <section className="panel self-center">
+        <div className="swiper-no-swiping grid grid-cols-[repeat(3,6.5cqw)] gap-[1.2cqw]">
           {c.skills.map((s, i) => (
             <button
               key={s.id}

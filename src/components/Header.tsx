@@ -40,8 +40,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/80 backdrop-blur">
-        <div className="page-container flex h-16 items-center gap-6">
+      <header className="header-bar sticky top-0 z-40 backdrop-blur">
+        <div className="page-container flex h-16 items-center gap-8">
           <Link href="/" className="shrink-0">
             <Image
               src={img("logo.webp")}
@@ -55,15 +55,16 @@ export default function Header() {
           </Link>
 
           {/* Menu desktop */}
-          <nav className="hidden flex-1 items-center gap-1 lg:flex">
+          <nav className="hidden flex-1 items-center gap-2 lg:flex">
             {NAV.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                aria-current={isActive(item.href) ? "page" : undefined}
+                className={`rounded-lg px-4 py-1.5 text-[15px] font-medium transition-colors ${
                   isActive(item.href)
-                    ? "bg-white/10 text-amber-400"
-                    : "text-slate-300 hover:bg-white/5 hover:text-white"
+                    ? "nav-active"
+                    : "border border-transparent text-slate-100 hover:text-[#f8cf6a]"
                 }`}
               >
                 {t(item.key)}
@@ -79,7 +80,7 @@ export default function Header() {
               aria-expanded={open}
               aria-controls="mobile-drawer"
               onClick={() => setOpen(true)}
-              className="rounded-md p-2 text-slate-300 hover:bg-white/10 lg:hidden"
+              className="rounded-md p-2 text-slate-100 hover:text-[#f8cf6a] lg:hidden"
             >
               <svg
                 className="h-6 w-6"
@@ -113,11 +114,11 @@ export default function Header() {
           id="mobile-drawer"
           role="dialog"
           aria-modal="true"
-          className={`absolute right-0 top-0 flex h-full w-72 max-w-[85vw] flex-col border-l border-white/10 bg-slate-950 shadow-2xl transition-transform duration-300 ease-out ${
+          className={`absolute right-0 top-0 flex h-full w-72 max-w-[85vw] flex-col border-l border-[#d9a441]/40 bg-[linear-gradient(180deg,#1c1534_0%,#110d21_100%)] shadow-2xl transition-transform duration-300 ease-out ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex h-16 items-center justify-between border-b border-white/10 px-4">
+          <div className="header-bar relative flex h-16 items-center justify-between px-4">
             <span className="text-sm font-semibold text-slate-400">
               {t("menuTitle")}
             </span>
@@ -145,10 +146,11 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`mb-1 block rounded-md px-3 py-3 text-base font-medium ${
+                aria-current={isActive(item.href) ? "page" : undefined}
+                className={`mb-2 block rounded-lg px-4 py-2.5 text-base font-medium ${
                   isActive(item.href)
-                    ? "bg-white/10 text-amber-400"
-                    : "text-slate-300 hover:bg-white/5"
+                    ? "nav-active after:hidden"
+                    : "border border-transparent text-slate-100 hover:text-[#f8cf6a]"
                 }`}
               >
                 {t(item.key)}

@@ -1,5 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import Gallery from "@/components/Gallery";
+import MusicToggle from "@/components/MusicToggle";
 import { getCharacters } from "@/data";
 
 export default async function HomePage() {
@@ -11,6 +12,7 @@ export default async function HomePage() {
     <>
       <div className="mb-4 flex items-center justify-between">
         <h1 className="text-2xl font-bold">{t("title")}</h1>
+        <MusicToggle src="/characters.mp3" />
       </div>
       <Gallery items={characters} />
     </>

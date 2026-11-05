@@ -1,6 +1,8 @@
 {
   "Home": {
-    "title": "Nhân vật"
+    "title": "Nhân vật",
+    "musicOn": "Bật nhạc",
+    "musicOff": "Tắt nhạc"
   },
   "Nav": {
     "home": "Trang chủ",

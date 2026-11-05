@@ -38,7 +38,7 @@ export default function LocaleSwitcher() {
         aria-label={t("language")}
         onClick={() => setOpen((v) => !v)}
         disabled={isPending}
-        className="flex items-center gap-1.5 rounded-md px-3 py-2 text-sm font-medium text-slate-300 hover:bg-white/10 disabled:opacity-50"
+        className="flex items-center gap-1.5 rounded-md px-3 py-2 text-[15px] font-medium text-slate-100 hover:text-[#f8cf6a] disabled:opacity-50"
       >
         <svg
           className="h-4 w-4"
@@ -51,10 +51,19 @@ export default function LocaleSwitcher() {
           <path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" />
         </svg>
         {locale.toUpperCase()}
+        <svg
+          className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2.5}
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+        </svg>
       </button>
 
       {open && (
-        <ul className="absolute right-0 mt-1 w-36 overflow-hidden rounded-md border border-white/10 bg-slate-900 py-1 shadow-lg">
+        <ul className="absolute right-0 mt-2 w-36 overflow-hidden rounded-lg border border-[#d9a441]/40 bg-[#17122b] py-1 shadow-[0_8px_24px_rgb(0_0_0/0.6)]">
           {routing.locales.map((l) => (
             <li key={l}>
               <button
@@ -62,8 +71,8 @@ export default function LocaleSwitcher() {
                 onClick={() => change(l)}
                 className={`block w-full px-3 py-2 text-left text-sm ${
                   l === locale
-                    ? "text-amber-400"
-                    : "text-slate-300 hover:bg-white/5"
+                    ? "text-[#f8cf6a]"
+                    : "text-slate-100 hover:bg-white/5 hover:text-[#f8cf6a]"
                 }`}
               >
                 {LABELS[l]}

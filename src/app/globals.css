@@ -707,6 +707,100 @@
     linear-gradient(180deg, #2b1650 0%, #1a0d33 55%, #0b0616 100%);
 }
 
+/* ===================================================================
+   TRANG CỐT TRUYỆN (v1.5.0)
+   =================================================================== */
+
+/* Cảnh thay thế: thiên thể vàng (Celestial Champion) */
+@utility scene-celestial {
+  background:
+    radial-gradient(circle at 50% 38%, #fff6d6 0 6%, #f5c46b 12%, rgb(217 164 65 / 0.45) 24%, transparent 45%),
+    radial-gradient(ellipse 120% 60% at 50% 110%, rgb(12 14 40) 40%, transparent 70%),
+    linear-gradient(180deg, #1d2a5c 0%, #141a3f 55%, #0a0b1e 100%);
+}
+
+/* Huy hiệu số La Mã trên trục thời gian */
+@utility story-medal {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border: 2px solid var(--gold);
+  background: radial-gradient(circle at 50% 35%, #3a2560, #140c26 70%);
+  color: #f8cf6a;
+  font-weight: 800;
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  box-shadow:
+    0 0 0 4px rgb(13 9 25),
+    0 0 18px rgb(245 180 70 / 0.55);
+
+  @variant sm {
+    width: 56px;
+    height: 56px;
+    font-size: 20px;
+  }
+}
+@utility story-medal-locked {
+  border-color: rgb(217 164 65 / 0.45);
+  color: rgb(248 207 106 / 0.6);
+  box-shadow:
+    0 0 0 4px rgb(13 9 25),
+    0 0 8px rgb(124 58 237 / 0.35);
+}
+
+/* Thẻ thử thách (boss) */
+@utility trial-card {
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgb(217 164 65 / 0.45);
+  background: linear-gradient(180deg, #1b1233, #120b23);
+  box-shadow:
+    0 0 0 1px rgb(13 9 25),
+    0 8px 24px rgb(0 0 0 / 0.45);
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    translate 0.25s;
+
+  &:hover {
+    translate: 0 -3px;
+    border-color: rgb(245 196 107 / 0.8);
+    box-shadow:
+      0 0 0 1px rgb(13 9 25),
+      0 0 22px rgb(245 180 70 / 0.25),
+      0 12px 30px rgb(0 0 0 / 0.5);
+  }
+}
+
+/* Giai đoạn bị khóa: nền tối bí ẩn */
+@utility story-locked {
+  background:
+    radial-gradient(ellipse 40% 90% at 55% 50%, rgb(124 58 237 / 0.22), transparent 70%),
+    linear-gradient(180deg, rgb(22 14 40 / 0.92), rgb(10 6 20 / 0.95));
+  border-style: dashed;
+  border-color: rgb(217 164 65 / 0.35);
+}
+
+/* Dấu ? lớn mờ, nhịp sáng */
+@utility story-question {
+  position: absolute;
+  left: 55%;
+  top: 50%;
+  translate: -50% -50%;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 110px;
+  font-weight: 700;
+  line-height: 1;
+  color: rgb(196 181 253 / 0.14);
+  text-shadow: 0 0 30px rgb(167 139 250 / 0.5);
+  pointer-events: none;
+  user-select: none;
+}
+
 html {
   /* Giữ sẵn chỗ cho thanh cuộn để trang không bị xô ngang khi mở/đóng drawer */
   scrollbar-gutter: stable;

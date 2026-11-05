@@ -86,5 +86,17 @@
       "worldEvent": "Sự kiện thế giới",
       "pve": "Hoạt động PvE"
     }
+  },
+  "Story": {
+    "eyebrow": "ArcaneMage Wiki",
+    "title": "Cốt truyện",
+    "subtitle": "Hành trình cân bằng Bóng tối và Ánh sáng trong thế giới Constant",
+    "stage": "Giai đoạn {n}",
+    "reward": "Phần thưởng:",
+    "viewReward": "Xem trong trang Vật phẩm",
+    "locked": "Chưa mở khóa",
+    "lockedTagline": "Bí mật chưa được khám phá",
+    "collapse": "Thu gọn",
+    "expand": "Mở rộng"
   }
 }

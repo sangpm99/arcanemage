@@ -86,5 +86,17 @@
       "worldEvent": "World event",
       "pve": "PvE activity"
     }
+  },
+  "Story": {
+    "eyebrow": "ArcaneMage Wiki",
+    "title": "Story",
+    "subtitle": "A journey to balance Shadow and Light in the Constant",
+    "stage": "Stage {n}",
+    "reward": "Reward:",
+    "viewReward": "View on the Items page",
+    "locked": "Locked",
+    "lockedTagline": "A secret yet to be discovered",
+    "collapse": "Collapse",
+    "expand": "Expand"
   }
 }

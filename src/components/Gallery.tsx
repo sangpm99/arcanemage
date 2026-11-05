@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   EffectFade,
@@ -36,17 +36,19 @@ const CORNERS = [
 export default function Gallery({ items }: GalleryProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const [active, setActive] = useState(0);
+  const stageRef = useRef<HTMLDivElement>(null);
   const glowColor = items[active]?.element.color ?? "#f5c46b";
 
   return (
     <div className="w-full">
       {/* ===== Sân khấu lớn ===== */}
-      <div className="stage-frame">
+      <div ref={stageRef} className="stage-frame scroll-mt-24">
         {CORNERS.map((pos) => (
           <span key={pos} className={`stage-corner ${pos}`} />
         ))}
 
-        <div className="@container relative aspect-[1672/941] w-full overflow-hidden rounded-[18px]">
+        {/* PC: khung 16:9 cố định · mobile/tablet: cao theo nội dung thẻ */}
+        <div className="@container relative w-full overflow-hidden rounded-[18px] lg:aspect-[1672/941]">
           {/* Ảnh nền, zoom chậm qua lại */}
           <div
             className="absolute inset-0 bg-cover bg-center motion-safe:animate-ken-burns"
@@ -69,15 +71,35 @@ export default function Gallery({ items }: GalleryProps) {
             effect="fade"
             fadeEffect={{ crossFade: true }}
             speed={700}
+            autoHeight
             thumbs={{
               swiper:
                 thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
             }}
-            onSlideChange={(s) => setActive(s.activeIndex)}
-            className="stage-nav !absolute inset-0 h-full"
+            onSlideChange={(s) => {
+              setActive(s.activeIndex);
+              // Mobile/tablet: thẻ dài, nếu đầu thẻ đã cuộn khỏi màn hình
+              // thì đưa người xem về đầu thẻ nhân vật mới
+              const stage = stageRef.current;
+              if (
+                stage &&
+                window.innerWidth < 1024 &&
+                stage.getBoundingClientRect().top < 0
+              ) {
+                stage.scrollIntoView({
+                  behavior: window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                  ).matches
+                    ? "auto"
+                    : "smooth",
+                  block: "start",
+                });
+              }
+            }}
+            className="stage-nav relative lg:!absolute lg:inset-0 lg:h-full"
           >
             {items.map((c) => (
-              <SwiperSlide key={c.id} className="h-full">
+              <SwiperSlide key={c.id} className="lg:!h-full">
                 <CharacterCard character={c} />
               </SwiperSlide>
             ))}
@@ -85,13 +107,20 @@ export default function Gallery({ items }: GalleryProps) {
         </div>
       </div>
 
-      {/* ===== Hàng thumbnail ===== */}
-      <div className="thumb-rail mt-8">
+      {/* ===== Hàng thumbnail =====
+          Mobile/tablet: dính ở đáy màn hình để đổi nhân vật khi đang đọc giữa thẻ */}
+      <div className="thumb-rail z-30 mt-8 max-lg:sticky max-lg:bottom-3 max-lg:shadow-[0_-12px_30px_rgb(8_5_18/0.85),0_0_14px_rgb(245_180_70/0.25),inset_0_0_0_4px_rgb(17_11_32/0.95),inset_0_0_0_5px_rgb(217_164_65/0.3)]">
         <Swiper
           onSwiper={setThumbsSwiper}
           modules={[FreeMode, Thumbs]}
-          spaceBetween={10}
-          slidesPerView={12}
+          spaceBetween={8}
+          slidesPerView={4.5}
+          breakpoints={{
+            420: { slidesPerView: 5.5 },
+            560: { slidesPerView: 7 },
+            768: { slidesPerView: 9, spaceBetween: 10 },
+            1024: { slidesPerView: 12, spaceBetween: 10 },
+          }}
           freeMode
           watchSlidesProgress
           // chừa chỗ để quầng sáng của ô active không bị cắt

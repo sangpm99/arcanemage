@@ -9,7 +9,7 @@
   "Nav": {
     "home": "Home",
     "characters": "Characters",
-    "equipment": "Equipment",
+    "items": "Items",
     "story": "Story",
     "mods": "Mods",
     "community": "Community",
@@ -27,5 +27,50 @@
     "cooldown": "Cooldown",
     "cooldownShort": "CD",
     "mana": "Mana"
+  },
+  "Items": {
+    "eyebrow": "ArcaneMage Wiki",
+    "title": "Items",
+    "subtitle": "{count} items: stats, crafting recipes and how to use them",
+    "searchPlaceholder": "Search items...",
+    "clearSearch": "Clear search",
+    "all": "All",
+    "categories": {
+      "weapon": "Weapons",
+      "armor": "Armor",
+      "vehicle": "Vehicles",
+      "general": "General"
+    },
+    "noResults": "No items match \"{query}\"",
+    "stats": "Stats",
+    "stat": {
+      "attack": "Base attack",
+      "armorPen": "Armor penetration",
+      "moveSpeed": "Movement speed",
+      "damageResist": "Damage resistance"
+    },
+    "recipe": {
+      "craft": "Crafting recipe",
+      "upgrade": "Upgrade materials",
+      "apply": "How to upgrade"
+    },
+    "station": {
+      "craft": "Unlocked at",
+      "upgrade": "Upgrade at",
+      "apply": "Use at"
+    },
+    "or": "or",
+    "hpCost": "{qty} HP",
+    "unlocksSkills": {
+      "basic": "Unlocks 3 basic skills",
+      "intermediate": "Unlocks 3 intermediate skills",
+      "advanced": "Unlocks 3 advanced skills"
+    },
+    "exclusive": "{name} only",
+    "notes": "Notes",
+    "source": "How to obtain",
+    "usedIn": "Used to craft",
+    "close": "Close",
+    "viewDetail": "View details"
   }
 }

@@ -106,6 +106,11 @@
     opacity: 0;
   }
 }
+@keyframes grow {
+  from {
+    width: 0;
+  }
+}
 @keyframes sweep {
   from {
     translate: -120% 0;
@@ -484,6 +489,158 @@
     );
     translate: -120% 0;
   }
+}
+
+/* ===================================================================
+   TRANG VẬT PHẨM (v1.3.0)
+   =================================================================== */
+
+/* Khung panel lớn: kính tím, viền vàng, quầng sáng */
+@utility arcane-panel {
+  position: relative;
+  border-radius: 18px;
+  border: 1px solid rgb(217 164 65 / 0.45);
+  background:
+    radial-gradient(
+      ellipse 80% 50% at 50% 0%,
+      rgb(124 58 237 / 0.14),
+      transparent 70%
+    ),
+    linear-gradient(180deg, rgb(26 18 48 / 0.92), rgb(14 9 28 / 0.94));
+  box-shadow:
+    0 0 0 1px rgb(13 9 25),
+    0 0 0 3px rgb(217 164 65 / 0.12),
+    0 0 30px rgb(124 58 237 / 0.18),
+    0 18px 50px rgb(0 0 0 / 0.55),
+    inset 0 1px 0 rgb(255 255 255 / 0.05);
+  backdrop-filter: blur(8px);
+}
+
+/* Ô vật phẩm: khung nâu chuyển màu (giống ô kỹ năng ở trang chủ) */
+@utility item-frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 1px solid rgb(0 0 0 / 0.7);
+  padding: 4px;
+  background: #2e1b12;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.55);
+  transition:
+    box-shadow 0.2s,
+    background-color 0.2s,
+    filter 0.2s;
+
+  & > .item-art {
+    border-radius: 8px;
+    box-shadow:
+      0 0 4px 1.5px #b48a64,
+      0 0 0 0.7px #b48a64;
+    transition: box-shadow 0.2s;
+  }
+}
+@utility item-frame-active {
+  background: #7a4a10;
+  box-shadow:
+    0 0 16px rgb(251 191 36 / 0.6),
+    0 3px 8px rgb(0 0 0 / 0.55);
+
+  & > .item-art {
+    box-shadow:
+      0 0 5px 2px #ffe08a,
+      0 0 0 0.8px #ffe08a;
+  }
+}
+
+/* Ảnh vật phẩm chưa có (404): nền tím + icon nhóm */
+@utility item-placeholder {
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgb(245 196 107 / 0.22),
+      transparent 60%
+    ),
+    linear-gradient(160deg, #3b2363 0%, #1d1236 100%);
+  color: rgb(248 207 106 / 0.85);
+}
+
+/* Ô chọn nhóm (Tất cả / Vũ khí / ...) */
+@utility filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  border-radius: 9999px;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.04);
+  padding: 7px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(226 232 240);
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background-color 0.2s,
+    box-shadow 0.2s;
+
+  &:hover {
+    color: #f8cf6a;
+    border-color: rgb(217 164 65 / 0.45);
+  }
+  &[aria-pressed="true"] {
+    color: #f8cf6a;
+    border-color: #d9a441;
+    background: linear-gradient(
+      180deg,
+      rgb(74 48 22 / 0.6),
+      rgb(32 20 12 / 0.85)
+    );
+    box-shadow:
+      0 0 12px rgb(245 180 70 / 0.4),
+      inset 0 0 8px rgb(245 180 70 / 0.22);
+  }
+}
+
+/* Tiêu đề mục nhỏ trong panel chi tiết: ◇ Chỉ số ───── */
+@utility section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  color: #f8cf6a;
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgb(217 164 65 / 0.55), transparent);
+  }
+}
+
+/* Vòng sáng xoay sau ảnh vật phẩm lớn */
+@utility arcane-ring {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgb(245 196 107 / 0.55) 60deg,
+    transparent 120deg,
+    rgb(167 139 250 / 0.5) 200deg,
+    transparent 260deg
+  );
+  mask: radial-gradient(
+    circle,
+    transparent 58%,
+    #000 60%,
+    #000 66%,
+    transparent 68%
+  );
+}
+
+/* Thanh cuộn mảnh màu vàng cho panel */
+@utility arcane-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(217 164 65 / 0.45) transparent;
 }
 
 html {

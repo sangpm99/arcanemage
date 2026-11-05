@@ -9,7 +9,7 @@ import LocaleSwitcher from "./LocaleSwitcher";
 
 const NAV = [
   { href: "/", key: "characters" },
-  { href: "/equipment", key: "equipment" },
+  { href: "/items", key: "items" },
   { href: "/story", key: "story" },
   { href: "/mods", key: "mods" },
   { href: "/community", key: "community" },

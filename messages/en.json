@@ -155,5 +155,44 @@
       "desc": "Join our Discord to ask questions, report bugs and share feedback on the mod.",
       "cta": "Join Discord"
     }
+  },
+  "Support": {
+    "eyebrow": "ArcaneMage Wiki",
+    "title": "Feedback & Support",
+    "subtitle": "Share ideas, report bugs and support the development of the mod and wiki.",
+    "feedbackTitle": "Feedback & Bug reports",
+    "feedbackSub": "Send us your thoughts, suggestions or bugs you ran into while using the mod/wiki.",
+    "form": {
+      "email": "Your email",
+      "emailPlaceholder": "Enter your email...",
+      "content": "Message",
+      "contentPlaceholder": "Write your feedback, idea or bug description...",
+      "mathLabel": "Solve the sum to show you're not a robot",
+      "mathNew": "Try another sum",
+      "submit": "Send feedback",
+      "sending": "Sending...",
+      "sent": "Thank you! Your feedback was sent. Check your inbox for a confirmation email."
+    },
+    "errors": {
+      "email": "Please enter a valid email.",
+      "content": "Message must be 5 to 5000 characters.",
+      "math": "That answer isn't right, try the new sum.",
+      "rate": "Too many submissions, please try again in a few minutes.",
+      "server": "We couldn't send the email right now, please try again later."
+    },
+    "mail": {
+      "subject": "ArcaneMage: Thanks for your feedback!",
+      "title": "Thanks for your feedback!",
+      "hello": "Hello,",
+      "body1": "We've received your feedback and will review it carefully to improve the Ma Pháp Khai Nguyên mod and the ArcaneMage wiki.",
+      "body2": "If we need more details, we'll reply to this email. Have fun on your magical adventures!",
+      "signature": "Best regards,\nThe ArcaneMage team"
+    },
+    "donateTitle": "Support the author",
+    "donateDesc": "If you enjoy the mod and this wiki, you can support the author by scanning the QR code below with your banking or e-wallet app.",
+    "voluntary": "Support is entirely voluntary.",
+    "qrAlt": "QR code to support the author",
+    "thanks": "Every bit of support is a huge motivation. Thank you!",
+    "qrPending": "The QR code is coming soon."
   }
 }

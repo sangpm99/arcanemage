@@ -155,5 +155,44 @@
       "desc": "Tham gia Discord để hỏi đáp, báo lỗi và góp ý cho mod.",
       "cta": "Tham gia Discord"
     }
+  },
+  "Support": {
+    "eyebrow": "ArcaneMage Wiki",
+    "title": "Góp ý & Ủng hộ",
+    "subtitle": "Đóng góp ý kiến, báo lỗi và ủng hộ để phát triển mod và wiki tốt hơn.",
+    "feedbackTitle": "Góp ý & Báo lỗi",
+    "feedbackSub": "Hãy gửi cho chúng tôi ý kiến, đề xuất hoặc lỗi bạn gặp khi sử dụng mod/wiki.",
+    "form": {
+      "email": "Email của bạn",
+      "emailPlaceholder": "Nhập email...",
+      "content": "Nội dung",
+      "contentPlaceholder": "Nhập góp ý, đề xuất hoặc mô tả lỗi...",
+      "mathLabel": "Giải phép tính để xác nhận bạn không phải người máy",
+      "mathNew": "Đổi phép tính khác",
+      "submit": "Gửi góp ý",
+      "sending": "Đang gửi...",
+      "sent": "Cảm ơn bạn! Góp ý đã được gửi, hãy kiểm tra hộp thư để nhận email xác nhận."
+    },
+    "errors": {
+      "email": "Email không hợp lệ.",
+      "content": "Nội dung cần từ 5 đến 5000 ký tự.",
+      "math": "Kết quả phép tính chưa đúng, hãy thử phép tính mới.",
+      "rate": "Bạn gửi hơi nhiều, vui lòng thử lại sau ít phút.",
+      "server": "Không gửi được email lúc này, vui lòng thử lại sau."
+    },
+    "mail": {
+      "subject": "ArcaneMage: Cảm ơn bạn đã góp ý!",
+      "title": "Cảm ơn bạn đã góp ý!",
+      "hello": "Xin chào,",
+      "body1": "Chúng tôi đã nhận được góp ý của bạn và sẽ xem xét kỹ để cải thiện mod Ma Pháp Khai Nguyên cùng wiki ArcaneMage.",
+      "body2": "Nếu cần thêm thông tin, chúng tôi sẽ liên hệ lại qua email này. Chúc bạn có những chuyến phiêu lưu phép thuật thật vui!",
+      "signature": "Thân mến,\nĐội ngũ ArcaneMage"
+    },
+    "donateTitle": "Ủng hộ tác giả",
+    "donateDesc": "Nếu bạn thích mod và wiki này, bạn có thể ủng hộ tác giả bằng cách quét mã QR bên dưới bằng ứng dụng ngân hàng hoặc ví điện tử.",
+    "voluntary": "Việc ủng hộ hoàn toàn tự nguyện.",
+    "qrAlt": "Mã QR ủng hộ tác giả",
+    "thanks": "Mỗi sự ủng hộ đều là nguồn động lực to lớn. Xin cảm ơn!",
+    "qrPending": "Mã QR sẽ sớm được cập nhật."
   }
 }

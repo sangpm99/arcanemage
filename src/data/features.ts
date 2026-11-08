@@ -1,4 +1,5 @@
 import { img } from "@/lib/cdn";
+import type { ElementId } from "./elements";
 
 /*
  * DỮ LIỆU GỐC CỦA TÍNH NĂNG (icon, màu, ảnh, liên kết).
@@ -8,7 +9,7 @@ import { img } from "@/lib/cdn";
  * Chưa upload lên R2 thì trang hiện ảnh thay thế theo `theme`.
  */
 
-export const FEATURE_CATEGORIES = ["worldEvent", "pve"] as const;
+export const FEATURE_CATEGORIES = ["worldEvent", "pve", "companion"] as const;
 export type FeatureCategory = (typeof FEATURE_CATEGORIES)[number];
 
 /** Icon vẽ sẵn trong components/features/FeatureIcon.tsx */
@@ -25,7 +26,17 @@ export type FeatureIconName =
   | "warning"
   | "team"
   | "stairs"
-  | "chest";
+  | "chest"
+  | "paw"
+  | "scroll"
+  | "user"
+  | "sparkle"
+  | "heart"
+  | "orb"
+  | "cancel"
+  | "pin"
+  | "food"
+  | "clock";
 
 /** Màu icon của từng ô hiệu ứng */
 export type Tone = "red" | "orange" | "blue" | "green" | "purple" | "gold";
@@ -38,13 +49,28 @@ export type Perk = {
   href?: string;
 };
 
+/** Thú khế ước. Ảnh theo id, ví dụ "friendly-peeper.webp" */
+export type Pet = {
+  id: string;
+  /** tên trong game, giữ nguyên ở mọi ngôn ngữ */
+  name: string;
+  element: ElementId;
+  /** thời gian hồi skill (phút) */
+  cooldown: number;
+};
+
+/** Khối quy tắc dạng gạch đầu dòng */
+export type FeatureSection = { id: string; icon: FeatureIconName; tone: Tone };
+
 export type FeatureBase = {
   id: string;
   icon: FeatureIconName;
   category: FeatureCategory;
   /** màu ảnh thay thế khi chưa có ảnh */
-  theme: "blood" | "arcane";
+  theme: "blood" | "arcane" | "wild";
   perks: readonly Perk[];
+  pets?: readonly Pet[];
+  sections?: readonly FeatureSection[];
 };
 
 /* Thứ tự trong mảng = thứ tự hiển thị */
@@ -84,9 +110,42 @@ export const features = [
       },
     ],
   },
+  {
+    id: "pet-contract",
+    icon: "paw",
+    category: "companion",
+    theme: "wild",
+    perks: [
+      { id: "wild", icon: "paw", tone: "green" },
+      { id: "sign", icon: "scroll", tone: "gold" },
+      { id: "one-pet", icon: "user", tone: "blue" },
+      { id: "use-skill", icon: "sparkle", tone: "purple" },
+    ],
+    pets: [
+      { id: "broodling", name: "Broodling", element: "fire", cooldown: 4 },
+      { id: "ewelet", name: "Ewelet", element: "nature", cooldown: 16 },
+      { id: "glomglom", name: "Glomglom", element: "nature", cooldown: 16 },
+      {
+        id: "friendly-peeper",
+        name: "Friendly Peeper",
+        element: "dark",
+        cooldown: 4,
+      },
+      { id: "giblet", name: "Giblet", element: "lightning", cooldown: 8 },
+      { id: "kittykit", name: "Kittykit", element: "water", cooldown: 8 },
+      { id: "mothling", name: "Mothling", element: "light", cooldown: 8 },
+      { id: "vargling", name: "Vargling", element: "earth", cooldown: 16 },
+    ],
+    sections: [
+      { id: "bond", icon: "heart", tone: "red" },
+      { id: "assist", icon: "orb", tone: "purple" },
+      { id: "cancel", icon: "cancel", tone: "orange" },
+    ],
+  },
 ] as const satisfies readonly FeatureBase[];
 
 export type FeatureDef = (typeof features)[number];
 export type FeatureId = FeatureDef["id"];
 
 export const featureImage = (id: string) => img(`${id}.webp`);
+export const petImage = featureImage;

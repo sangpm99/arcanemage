@@ -83,8 +83,17 @@
     "viewItem": "Xem Ma thạch trong trang Vật phẩm",
     "categories": {
       "worldEvent": "Sự kiện thế giới",
-      "pve": "Hoạt động PvE"
-    }
+      "pve": "Hoạt động PvE",
+      "companion": "Đồng hành"
+    },
+    "expand": "Mở rộng",
+    "collapse": "Thu gọn",
+    "petsTitle": "Các loài thú khế ước",
+    "petSkill": "Skill đặc biệt",
+    "petCooldown": "Hồi chiêu",
+    "petSpawn": "Nơi sinh ra",
+    "petFood": "Đồ ăn ưa thích",
+    "minutes": "{n} phút"
   },
   "Story": {
     "eyebrow": "ArcaneMage Wiki",

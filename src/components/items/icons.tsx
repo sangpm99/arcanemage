@@ -74,6 +74,15 @@ const PATHS = {
   heart: (
     <path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z" />
   ),
+  paw: (
+    <>
+      <circle cx="5.5" cy="11" r="2" />
+      <circle cx="9.5" cy="6" r="2" />
+      <circle cx="14.5" cy="6" r="2" />
+      <circle cx="18.5" cy="11" r="2" />
+      <path d="M12 11c-3 0-5.5 3-5.5 6 0 2 1.6 3 3.2 3 .9 0 1.6-.5 2.3-.5s1.4.5 2.3.5c1.6 0 3.2-1 3.2-3 0-3-2.5-6-5.5-6z" />
+    </>
+  ),
 } satisfies Record<string, React.ReactNode>;
 
 export type IconName = keyof typeof PATHS;

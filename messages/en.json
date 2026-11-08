@@ -83,8 +83,17 @@
     "viewItem": "View Mana Stone on the Items page",
     "categories": {
       "worldEvent": "World event",
-      "pve": "PvE activity"
-    }
+      "pve": "PvE activity",
+      "companion": "Companion"
+    },
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "petsTitle": "Contract pets",
+    "petSkill": "Special skill",
+    "petCooldown": "Cooldown",
+    "petSpawn": "Birthplace",
+    "petFood": "Favorite food",
+    "minutes": "{n} min"
   },
   "Story": {
     "eyebrow": "ArcaneMage Wiki",

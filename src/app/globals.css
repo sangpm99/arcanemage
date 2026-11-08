@@ -707,6 +707,14 @@
     linear-gradient(180deg, #2b1650 0%, #1a0d33 55%, #0b0616 100%);
 }
 
+/* Cảnh thay thế khi chưa có ảnh: rừng xanh (Khế ước thú) */
+@utility feature-scene-wild {
+  background:
+    radial-gradient(circle at 50% 42%, rgb(167 243 208 / 0.55) 0, rgb(16 185 129 / 0.35) 22%, transparent 48%),
+    radial-gradient(ellipse 120% 60% at 50% 110%, rgb(3 20 16) 40%, transparent 70%),
+    linear-gradient(180deg, #123a30 0%, #0c2620 55%, #06120f 100%);
+}
+
 /* ===================================================================
    TRANG CỐT TRUYỆN (v1.5.0)
    =================================================================== */

@@ -91,7 +91,6 @@
     "petsTitle": "Contract pets",
     "petSkill": "Special skill",
     "petCooldown": "Cooldown",
-    "petSpawn": "Birthplace",
     "petFood": "Favorite food",
     "minutes": "{n} min"
   },

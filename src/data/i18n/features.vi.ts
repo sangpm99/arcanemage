@@ -73,30 +73,25 @@ export default {
     pets: {
       broodling: {
         skill: "Tạo 1 quả cầu lửa tại chỗ thú, tồn tại 60 giây.",
-        spawn: "Quanh khu Dragonfly",
         foods: ["Charcoal"],
       },
       ewelet: {
         skill:
-          "Mọi cây trong vùng vuông 4x4 quanh thú lớn ngay (cây trồng ở ruộng, bụi, cỏ, cây non, nấm ở Mushroom Planter...).",
-        spawn: "Quanh Honey Patch (tổ Bee Queen)",
+          "Mọi cây trong phạm vi 1 ô đất quanh thú lớn ngay (cây trồng ở ruộng, bụi, cỏ, cây non, nấm ở Mushroom Planter...).",
         foods: ["Honey"],
       },
       glomglom: {
         skill:
-          "Mọi cây trong vùng vuông 4x4 quanh thú lớn ngay (cây trồng ở ruộng, bụi, cỏ, cây non, nấm ở Mushroom Planter...).",
-        spawn: "Quanh Pig King",
+          "Mọi cây trong phạm vi 1 ô đất quanh thú lớn ngay (cây trồng ở ruộng, bụi, cỏ, cây non, nấm ở Mushroom Planter...).",
         foods: ["Honey"],
       },
       "friendly-peeper": {
         skill: "Chặn 1 lần Charlie tấn công trong bóng tối.",
-        spawn: "Quanh Moon Stone",
         foods: ["Monster Meat"],
       },
       giblet: {
         skill:
           "Phóng 1 cầu điện xuống ao gần nhất (ao cá, ao đầm lầy, ao lươn trong hang), 10 con cá / lươn bay ra phía chủ.",
-        spawn: "Quanh Oasis (hồ trong sa mạc)",
         foods: [
           "Volt Goat Horn",
           "Electric Milk",
@@ -106,17 +101,14 @@ export default {
       kittykit: {
         skill:
           "Đổ đầy 1 bình tưới (Watering Can / Waterfowl Can) chưa đầy ở gần thú.",
-        spawn: "Quanh ao trong đầm lầy",
         foods: ["Fish Morsel", "Fish (sống / nướng / khô)"],
       },
       mothling: {
         skill: "Mọc 5 cây Lesser Glow Berry đã ra quả quanh thú, tồn tại 20 giây.",
-        spawn: "Quanh các mảnh Bàn thờ Mặt Trăng trên Đảo Mặt Trăng",
         foods: ["Light Bulb", "Moon Shroom"],
       },
       vargling: {
         skill: "Nhả ra 1 viên ngọc ngẫu nhiên: Red Gem hoặc Blue Gem.",
-        spawn: "Quanh Rock Den",
         foods: ["Rocks", "Flint", "Gold Nugget"],
       },
     },

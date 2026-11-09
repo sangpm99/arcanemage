@@ -151,15 +151,6 @@ const PATHS: Record<FeatureIconName, React.ReactNode> = {
       <path d="M5.5 5.5l13 13" />
     </>
   ),
-  pin: (
-    <>
-      <path
-        {...soft}
-        d="M12 22s7.5-6.5 7.5-12.5a7.5 7.5 0 0 0-15 0C4.5 15.5 12 22 12 22z"
-      />
-      <circle cx="12" cy="9.5" r="2.5" />
-    </>
-  ),
   food: (
     <>
       <path {...soft} d="M3 12h18a9 9 0 0 1-18 0z" />

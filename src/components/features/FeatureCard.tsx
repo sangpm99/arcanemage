@@ -109,13 +109,6 @@ function PetCard({ pet }: { pet: FeaturePet }) {
 
       <dl className="grid gap-2 border-t border-white/10 pt-3 text-xs">
         <div className="flex items-start gap-2">
-          <FeatureIcon name="pin" className="size-4 shrink-0 text-rose-300" />
-          <div>
-            <dt className="sr-only">{t("petSpawn")}</dt>
-            <dd className="leading-snug text-slate-300">{pet.spawn}</dd>
-          </div>
-        </div>
-        <div className="flex items-start gap-2">
           <FeatureIcon name="food" className="size-4 shrink-0 text-amber-300" />
           <div>
             <dt className="sr-only">{t("petFood")}</dt>

@@ -34,7 +34,6 @@ export type FeatureIconName =
   | "heart"
   | "orb"
   | "cancel"
-  | "pin"
   | "food"
   | "clock";
 

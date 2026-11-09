@@ -73,47 +73,39 @@ export default {
     pets: {
       broodling: {
         skill: "Creates a fireball where the pet stands, lasting 60 seconds.",
-        spawn: "Around the Dragonfly area",
         foods: ["Charcoal"],
       },
       ewelet: {
         skill:
-          "Every plant in a 4x4 square around the pet grows instantly (farm crops, bushes, grass, saplings, mushrooms in a Mushroom Planter...).",
-        spawn: "Around the Honey Patch (Bee Queen's hive)",
+          "Every plant within 1 turf around the pet grows instantly (farm crops, bushes, grass, saplings, mushrooms in a Mushroom Planter...).",
         foods: ["Honey"],
       },
       glomglom: {
         skill:
-          "Every plant in a 4x4 square around the pet grows instantly (farm crops, bushes, grass, saplings, mushrooms in a Mushroom Planter...).",
-        spawn: "Around the Pig King",
+          "Every plant within 1 turf around the pet grows instantly (farm crops, bushes, grass, saplings, mushrooms in a Mushroom Planter...).",
         foods: ["Honey"],
       },
       "friendly-peeper": {
         skill: "Blocks one of Charlie's attacks in the dark.",
-        spawn: "Around the Moon Stone",
         foods: ["Monster Meat"],
       },
       giblet: {
         skill:
           "Fires an electric orb into the nearest pond (fish pond, swamp pond, cave eel pond), sending 10 fish / eels flying toward its owner.",
-        spawn: "Around the Oasis (the desert lake)",
         foods: ["Volt Goat Horn", "Electric Milk", "Seeds of any crop"],
       },
       kittykit: {
         skill:
           "Refills one nearby Watering Can / Waterfowl Can that isn't full.",
-        spawn: "Around swamp ponds",
         foods: ["Fish Morsel", "Fish (raw / cooked / dried)"],
       },
       mothling: {
         skill:
           "Grows 5 fruiting Lesser Glow Berry plants around the pet, lasting 20 seconds.",
-        spawn: "Around the Celestial Altar pieces on the Lunar Island",
         foods: ["Light Bulb", "Moon Shroom"],
       },
       vargling: {
         skill: "Spits out one random gem: a Red Gem or a Blue Gem.",
-        spawn: "Around the Rock Den",
         foods: ["Rocks", "Flint", "Gold Nugget"],
       },
     },

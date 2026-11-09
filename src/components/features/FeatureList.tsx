@@ -38,7 +38,6 @@ export default function FeatureList({
               p.name,
               p.element.name,
               p.skill,
-              p.spawn,
               ...p.foods,
             ]),
             ...f.sections.flatMap((s) => [s.title, ...s.points]),

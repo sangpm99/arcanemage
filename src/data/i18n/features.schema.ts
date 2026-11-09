@@ -3,7 +3,6 @@ import type { FeatureDef } from "../features";
 export type PerkText = { title: string; desc: string };
 export type PetText = {
   skill: string;
-  spawn: string;
   /** đồ ăn ưa thích, mỗi món một phần tử */
   foods: string[];
 };

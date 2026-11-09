@@ -2,9 +2,7 @@
   "Home": {
     "eyebrow": "ArcaneMage Wiki",
     "title": "Nhân vật",
-    "subtitle": "Khám phá {count} nhân vật cùng hệ và kỹ năng của họ",
-    "musicOn": "Bật nhạc",
-    "musicOff": "Tắt nhạc"
+    "subtitle": "Khám phá {count} nhân vật cùng hệ và kỹ năng của họ"
   },
   "Nav": {
     "home": "Trang chủ",

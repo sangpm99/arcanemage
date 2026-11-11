@@ -71,6 +71,7 @@
     "notes": "Ghi chú",
     "source": "Cách kiếm",
     "usedIn": "Dùng để chế tạo",
+    "makes": "Nấu được",
     "close": "Đóng",
     "viewDetail": "Xem chi tiết"
   },
@@ -81,11 +82,12 @@
     "searchPlaceholder": "Tìm tính năng...",
     "clearSearch": "Xóa tìm kiếm",
     "noResults": "Không tìm thấy tính năng nào khớp với \"{query}\"",
-    "viewItem": "Xem Ma thạch trong trang Vật phẩm",
+    "viewItem": "Xem trong trang Vật phẩm",
     "categories": {
       "worldEvent": "Sự kiện thế giới",
       "pve": "Hoạt động PvE",
-      "companion": "Đồng hành"
+      "companion": "Đồng hành",
+      "alchemy": "Hệ thống / Dược thuật"
     },
     "expand": "Mở rộng",
     "collapse": "Thu gọn",
@@ -93,7 +95,17 @@
     "petSkill": "Skill đặc biệt",
     "petCooldown": "Hồi chiêu",
     "petFood": "Đồ ăn ưa thích",
-    "minutes": "{n} phút"
+    "minutes": "{n} phút",
+    "questMinor": "Nhiệm vụ nhỏ",
+    "questMajor": "Nhiệm vụ lớn",
+    "colQuest": "Nhiệm vụ",
+    "colNeeds": "Cần nộp",
+    "colUnlocks": "Mở khóa thuốc",
+    "colPotion": "Thuốc",
+    "colRecipe": "Công thức",
+    "colYield": "Ra",
+    "colEffect": "Tác dụng",
+    "pricePerBottle": "{n} Ma thạch / bình"
   },
   "Story": {
     "eyebrow": "ArcaneMage Wiki",

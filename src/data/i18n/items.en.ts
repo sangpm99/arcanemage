@@ -125,6 +125,14 @@ export default {
     source:
       "Dropped by minibosses, bosses, regular monsters during a blood moon, and in dungeons.",
   },
+  "magic-cauldron": {
+    name: "Magic Cauldron",
+    desc: "Where potions are brewed. Put the right ingredients into the cauldron to brew a potion.",
+    notes: [
+      "Only brews potions unlocked through the Apothecary Merlinth's quests",
+      "Wrong recipe or a locked potion: the cauldron explodes for -10 health within a radius of 4, without destroying structures",
+    ],
+  },
   "ancient-seed": {
     name: "Ancient Seed",
     desc: "Plant it to grow an Ancient Tree.",

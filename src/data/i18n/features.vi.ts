@@ -138,4 +138,108 @@ export default {
       },
     },
   },
+  apothecary: {
+    title: "Dược sư & Đơn thuốc",
+    tagline: "Làm nhiệm vụ cho bà Merlinth, mở khóa bí phương ma dược",
+    desc: "Gặp gỡ Merlinth – bà dược sư của ArcaneMage. Hoàn thành nhiệm vụ, mở khóa bí phương và nấu ra những loại thuốc mạnh mẽ để hỗ trợ hành trình của bạn.",
+    perks: {
+      quests: {
+        title: "Nhiệm vụ",
+        desc: "Hoàn thành nhiệm vụ của Merlinth để mở thuốc mới.",
+      },
+      recipes: {
+        title: "Bí phương",
+        desc: "Nhận bí phương sau mỗi nhiệm vụ, cả server cùng nấu.",
+      },
+      cauldron: {
+        title: "Vạc ma thuật",
+        desc: "Dùng vạc để nấu thuốc theo công thức.",
+      },
+      variety: {
+        title: "Đa dạng thuốc",
+        desc: "Hồi máu, ma lực, hộ thể, linh tốc, tâm trí và thuốc lớn.",
+      },
+    },
+    sections: {
+      intro: {
+        title: "Giới thiệu",
+        points: [
+          "Merlinth là bà dược sư già vui tính, chỉ có 1 người trên mỗi server.",
+          "Bà trao đổi bí phương ma dược lấy nguyên liệu.",
+          "Thuốc chỉ nấu được sau khi hoàn thành nhiệm vụ của bà.",
+        ],
+      },
+      summon: {
+        title: "Gọi Dược sư",
+        caption: "Nhà tiên tri",
+        points: [
+          "Bà không có sẵn trên bản đồ.",
+          'Phải xây "Nhà tiên tri": 4 Ván gỗ + 3 Đá cắt + 4 Sừng dê điện.',
+          "Cần Alchemy Engine, ở tab Công trình.",
+        ],
+      },
+      quests: {
+        title: "Nhiệm vụ",
+        points: [
+          "Đưa đồ tận tay cho bà.",
+          "Tiến độ chung cả server. Các món trong cùng một dòng được cộng dồn với nhau.",
+          "Ban đầu có 5 nhiệm vụ nhỏ. Xong hết sẽ mở 4 nhiệm vụ lớn.",
+        ],
+      },
+      rewards: {
+        title: "Phần thưởng",
+        points: [
+          "Mỗi nhiệm vụ xong: nhận 1 Bí phương, cả server được nấu thuốc đó.",
+          "Cửa hàng của bà (sau khi xong nhiệm vụ tương ứng):",
+        ],
+      },
+      cauldron: {
+        title: "Vạc ma thuật",
+        caption: "Vạc ma thuật",
+        points: [
+          "Chế tạo: 3 Đá cắt + 2 Vàng + 3 Ma thạch.",
+          "Cần Prestihatitator, ở tab Phép thuật / Nấu ăn.",
+          "Sai công thức hoặc chưa mở khóa: vạc nổ, gây -10 máu trong bán kính 4, không phá công trình.",
+          "Cùng lúc chỉ 1 thuốc có tác dụng.",
+          "Uống thuốc mới sẽ thay thế hiệu ứng cũ.",
+        ],
+      },
+      potions: { title: "Danh sách thuốc", points: [] },
+    },
+    quests: {
+      heal: {
+        name: "Hồi máu",
+        needs: ["50 Cánh bướm", "10 hạt (Cà chua / Thanh long / Khoai tây)"],
+      },
+      arcane: {
+        name: "Ma lực",
+        needs: ["10 Cánh dơi", "20 Nhiên liệu ác mộng", "10 Cánh hoa đen"],
+      },
+      ward: {
+        name: "Hộ thể",
+        needs: ["10 Driftwood Piece", "10 Mật ong", "10 Nấm lam"],
+      },
+      swift: { name: "Linh tốc", needs: ["5 Thỏ", "5 Bunny Puff"] },
+      mind: {
+        name: "Tâm trí",
+        needs: ["30 Cánh hoa", "30 Hoa cây Lune / Mourning Glory"],
+      },
+      "great-heal": {
+        name: "Đại huyết",
+        needs: ["1 Nurse Spider", "1 Trái tim mách lẻo"],
+      },
+      "great-arcane": {
+        name: "Đại ma lực",
+        needs: ["1 Bat Hat", "3 Pure Horror", "3 Pure Brilliance"],
+      },
+      "great-ward": {
+        name: "Đại hộ thể",
+        needs: ["10 Gỗ sống", "20 Mật ong", "1 Craggy Carapace"],
+      },
+      "great-mind": {
+        name: "Đại tâm trí",
+        needs: ["20 Nấm đỏ", "20 Nấm xanh", "20 Nấm lam", "20 Nấm mặt trăng"],
+      },
+    },
+  },
 } satisfies FeatureMessages;

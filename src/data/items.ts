@@ -40,6 +40,8 @@ export const materials = {
   "bunny-puff": "Bunny Puff",
   petals: "Petals",
   "telltale-heart": "Telltale Heart",
+  "cut-stone": "Cut Stone",
+  "gold-nugget": "Gold Nugget",
 } as const;
 export type MaterialId = keyof typeof materials;
 
@@ -50,6 +52,7 @@ export const stations = {
   "shadowcraft-plinth": "Shadowcraft Plinth",
   "shadow-manipulator": "Shadow Manipulator",
   "magicians-chest": "Magician's Chest",
+  prestihatitator: "Prestihatitator",
 } as const;
 export type StationId = keyof typeof stations;
 
@@ -78,6 +81,8 @@ export type Recipe = {
   kind: "craft" | "upgrade" | "apply" | "brew";
   /** nhiều trạm = chọn 1 trong các trạm ("hoặc") */
   stations?: StationId[];
+  /** trạm là một vật phẩm trong wiki (bấm vào được), ví dụ Vạc ma thuật */
+  stationItems?: string[];
   ingredients: Ingredient[];
   /** số lượng thu được mỗi lần làm (bỏ trống = 1) */
   yield?: number;
@@ -334,6 +339,7 @@ export const items = [
     category: "potion",
     recipe: {
       kind: "brew",
+      stationItems: ["magic-cauldron"],
       yield: 3,
       ingredients: [
         { item: "mana-stone", qty: 1 },
@@ -347,6 +353,7 @@ export const items = [
     category: "potion",
     recipe: {
       kind: "brew",
+      stationItems: ["magic-cauldron"],
       yield: 3,
       ingredients: [
         { item: "mana-stone", qty: 1 },
@@ -360,6 +367,7 @@ export const items = [
     category: "potion",
     recipe: {
       kind: "brew",
+      stationItems: ["magic-cauldron"],
       yield: 3,
       ingredients: [
         { item: "mana-stone", qty: 1 },
@@ -373,6 +381,7 @@ export const items = [
     category: "potion",
     recipe: {
       kind: "brew",
+      stationItems: ["magic-cauldron"],
       yield: 5,
       ingredients: [
         { item: "ancient-stone", qty: 1 },
@@ -386,6 +395,7 @@ export const items = [
     category: "potion",
     recipe: {
       kind: "brew",
+      stationItems: ["magic-cauldron"],
       ingredients: [
         { material: "green-cap", qty: 2 },
         { material: "petals", qty: 2 },
@@ -397,6 +407,7 @@ export const items = [
     category: "potion",
     recipe: {
       kind: "brew",
+      stationItems: ["magic-cauldron"],
       yield: 5,
       ingredients: [
         { item: "ancient-stone", qty: 1 },
@@ -410,6 +421,7 @@ export const items = [
     category: "potion",
     recipe: {
       kind: "brew",
+      stationItems: ["magic-cauldron"],
       yield: 5,
       ingredients: [
         { item: "ancient-stone", qty: 1 },
@@ -424,6 +436,7 @@ export const items = [
     category: "potion",
     recipe: {
       kind: "brew",
+      stationItems: ["magic-cauldron"],
       yield: 5,
       ingredients: [
         { item: "ancient-stone", qty: 1 },
@@ -438,6 +451,7 @@ export const items = [
     category: "potion",
     recipe: {
       kind: "brew",
+      stationItems: ["magic-cauldron"],
       yield: 5,
       ingredients: [
         { item: "ancient-stone", qty: 1 },
@@ -449,6 +463,19 @@ export const items = [
 
   /* ===== Tổng hợp ===== */
   { id: "mana-stone", category: "general" },
+  {
+    id: "magic-cauldron",
+    category: "general",
+    recipe: {
+      kind: "craft",
+      stations: ["prestihatitator"],
+      ingredients: [
+        { material: "cut-stone", qty: 3 },
+        { material: "gold-nugget", qty: 2 },
+        { item: "mana-stone", qty: 3 },
+      ],
+    },
+  },
   { id: "ancient-seed", category: "general" },
   { id: "ancient-tree", category: "general" },
   { id: "ancient-stone", category: "general" },

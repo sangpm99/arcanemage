@@ -71,6 +71,7 @@
     "notes": "Notes",
     "source": "How to obtain",
     "usedIn": "Used to craft",
+    "makes": "Brews",
     "close": "Close",
     "viewDetail": "View details"
   },
@@ -81,11 +82,12 @@
     "searchPlaceholder": "Search features...",
     "clearSearch": "Clear search",
     "noResults": "No features match \"{query}\"",
-    "viewItem": "View Mana Stone on the Items page",
+    "viewItem": "View on the Items page",
     "categories": {
       "worldEvent": "World event",
       "pve": "PvE activity",
-      "companion": "Companion"
+      "companion": "Companion",
+      "alchemy": "System / Alchemy"
     },
     "expand": "Expand",
     "collapse": "Collapse",
@@ -93,7 +95,17 @@
     "petSkill": "Special skill",
     "petCooldown": "Cooldown",
     "petFood": "Favorite food",
-    "minutes": "{n} min"
+    "minutes": "{n} min",
+    "questMinor": "Minor quests",
+    "questMajor": "Major quests",
+    "colQuest": "Quest",
+    "colNeeds": "Turn in",
+    "colUnlocks": "Unlocks",
+    "colPotion": "Potion",
+    "colRecipe": "Recipe",
+    "colYield": "Yield",
+    "colEffect": "Effect",
+    "pricePerBottle": "{n} Mana Stones / bottle"
   },
   "Story": {
     "eyebrow": "ArcaneMage Wiki",

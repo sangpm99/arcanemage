@@ -125,6 +125,14 @@ export default {
     source:
       "Rơi ra khi giết miniboss, boss, quái thường vào đêm trăng máu hoặc trong hầm ngục.",
   },
+  "magic-cauldron": {
+    name: "Vạc ma thuật",
+    desc: "Nơi nấu các dược phẩm. Bỏ nguyên liệu đúng công thức vào vạc để nấu thuốc.",
+    notes: [
+      "Chỉ nấu được thuốc đã mở khóa bằng nhiệm vụ của Dược sư Merlinth",
+      "Sai công thức hoặc thuốc chưa mở khóa: vạc nổ, gây -10 máu trong bán kính 4, không phá công trình",
+    ],
+  },
   "ancient-seed": {
     name: "Hạt giống cổ ngữ",
     desc: "Đem trồng sẽ mọc thành Cây cổ ngữ.",

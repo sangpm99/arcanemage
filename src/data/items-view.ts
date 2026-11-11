@@ -48,6 +48,8 @@ export type Item = ItemRef & {
   exclusiveTo?: ItemRef;
   /** các vật phẩm dùng món này làm nguyên liệu (tự tính) */
   usedIn: ItemRef[];
+  /** vật phẩm này là trạm: các món làm ra tại đây (tự tính) */
+  makes: ItemRef[];
 };
 
 const dict: Record<Locale, ItemMessages> = { vi, en };
@@ -89,11 +91,14 @@ export function getItems(locale: Locale): Item[] {
       unlocksSkills: base.unlocksSkills,
       recipe: recipe && {
         kind: recipe.kind,
-        stations: (recipe.stations ?? []).map((id) => ({
-          id,
-          name: stations[id],
-          image: img(`${id}.webp`),
-        })),
+        stations: [
+          ...(recipe.stations ?? []).map((id) => ({
+            id,
+            name: stations[id],
+            image: img(`${id}.webp`),
+          })),
+          ...(recipe.stationItems ?? []).map(ref),
+        ],
         ingredients: recipe.ingredients.map((ing): ResolvedIngredient => {
           if ("hp" in ing) return { type: "hp", qty: ing.hp };
           if ("material" in ing)
@@ -115,6 +120,9 @@ export function getItems(locale: Locale): Item[] {
             (ing) => "item" in ing && ing.item === base.id
           )
         )
+        .map((other) => ref(other.id)),
+      makes: list
+        .filter((other) => other.recipe?.stationItems?.includes(base.id))
         .map((other) => ref(other.id)),
     };
   });

@@ -150,17 +150,36 @@ export default function ItemDetail({ item, onSelect }: Props) {
                     {t("or")}
                   </span>
                 )}
-                <div className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.04] py-1.5 pl-1.5 pr-3.5">
-                  <ItemArt
-                    src={st.image}
-                    alt={st.name}
-                    fallbackIcon="sparkle"
-                    className="w-11"
-                  />
-                  <span className="text-sm font-semibold text-slate-100">
-                    {st.name}
-                  </span>
-                </div>
+                {/* Trạm là vật phẩm trong wiki (có category) → bấm vào được */}
+                {(() => {
+                  const body = (
+                    <>
+                      <ItemArt
+                        src={st.image}
+                        alt={st.name}
+                        fallbackIcon={iconOf(st)}
+                        className="w-11"
+                      />
+                      <span className="text-sm font-semibold text-slate-100">
+                        {st.name}
+                      </span>
+                    </>
+                  );
+                  const box =
+                    "flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.04] py-1.5 pl-1.5 pr-3.5";
+                  return st.category ? (
+                    <button
+                      type="button"
+                      onClick={() => onSelect(st.id)}
+                      title={st.name}
+                      className={`${box} transition-colors hover:border-[#d9a441]/60 hover:bg-white/[0.07]`}
+                    >
+                      {body}
+                    </button>
+                  ) : (
+                    <div className={box}>{body}</div>
+                  );
+                })()}
               </Fragment>
             ))}
           </div>
@@ -187,6 +206,22 @@ export default function ItemDetail({ item, onSelect }: Props) {
           <p className="rounded-lg border-l-2 border-[#d9a441]/70 bg-white/[0.03] px-3 py-2 text-sm text-slate-200/90">
             {item.source}
           </p>
+        </Section>
+      )}
+
+      {/* ===== Trạm: các món làm ra tại đây (tự tính) ===== */}
+      {item.makes.length > 0 && (
+        <Section title={t("makes")}>
+          <div className="flex flex-wrap gap-3">
+            {item.makes.map((m) => (
+              <Tile
+                key={m.id}
+                entry={m}
+                fallback={iconOf(m)}
+                onClick={() => onSelect(m.id)}
+              />
+            ))}
+          </div>
         </Section>
       )}
 

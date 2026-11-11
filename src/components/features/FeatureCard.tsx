@@ -8,11 +8,13 @@ import type { FeatureBase } from "@/data/features";
 import ItemArt from "@/components/items/ItemArt";
 import { StoryIcon } from "@/components/story/StoryIcon";
 import { FeatureIcon, TONE_CLASS } from "./FeatureIcon";
+import FeatureSections from "./FeatureSections";
 
 const CATEGORY_ICON = {
   worldEvent: "calendar",
   pve: "swords",
   companion: "paw",
+  alchemy: "flask",
 } as const;
 
 /** Cảnh thay thế + màu icon khi chưa có ảnh */
@@ -275,35 +277,8 @@ export default function FeatureCard({
             </section>
           )}
 
-          {/* Các khối quy tắc */}
-          {feature.sections.length > 0 && (
-            <div className="grid gap-3 px-2 pb-3 pt-5 sm:px-3 md:grid-cols-3">
-              {feature.sections.map((s) => (
-                <section
-                  key={s.id}
-                  className="rounded-xl border border-white/10 bg-black/25 p-4"
-                >
-                  <h3 className="flex items-center gap-2.5 font-bold text-[#f8cf6a]">
-                    <FeatureIcon
-                      name={s.icon}
-                      className={`size-6 shrink-0 drop-shadow-[0_0_6px_currentColor] ${TONE_CLASS[s.tone]}`}
-                    />
-                    {s.title}
-                  </h3>
-                  <ul className="mt-3 grid gap-2 text-[13px] leading-relaxed text-slate-300">
-                    {s.points.map((point) => (
-                      <li key={point} className="flex items-start gap-2">
-                        <span aria-hidden className="text-[#f5c46b]">
-                          ✦
-                        </span>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              ))}
-            </div>
-          )}
+          {/* Các khối quy tắc (kèm bảng nhiệm vụ, cửa hàng, bảng thuốc nếu có) */}
+          <FeatureSections feature={feature} />
         </div>
       </div>
     </article>

@@ -40,7 +40,9 @@ export default function FeatureList({
               p.skill,
               ...p.foods,
             ]),
-            ...f.sections.flatMap((s) => [s.title, ...s.points]),
+            ...f.sections.flatMap((s) => [s.title, s.caption, ...s.points]),
+            ...f.quests.flatMap((q) => [q.name, q.reward.name, ...q.needs]),
+            ...f.potions.flatMap((p) => [p.name, p.recipe, p.effect]),
           ].join(" ")
         )
       ),

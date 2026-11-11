@@ -135,4 +135,111 @@ export default {
       },
     },
   },
+  apothecary: {
+    title: "Apothecary & Potions",
+    tagline: "Run errands for Merlinth to unlock secret potion recipes",
+    desc: "Meet Merlinth, the apothecary of ArcaneMage. Complete her quests, unlock secret recipes and brew powerful potions to support your journey.",
+    perks: {
+      quests: {
+        title: "Quests",
+        desc: "Complete Merlinth's quests to unlock new potions.",
+      },
+      recipes: {
+        title: "Secret recipes",
+        desc: "Earn a secret recipe from each quest, brewable server-wide.",
+      },
+      cauldron: {
+        title: "Magic Cauldron",
+        desc: "Use the cauldron to brew potions from recipes.",
+      },
+      variety: {
+        title: "Many potions",
+        desc: "Healing, arcane, warding, swiftness, sanity and greater potions.",
+      },
+    },
+    sections: {
+      intro: {
+        title: "Introduction",
+        points: [
+          "Merlinth is a cheerful old apothecary. There is only 1 of her per server.",
+          "She trades secret potion recipes for ingredients.",
+          "Potions can only be brewed after completing her quests.",
+        ],
+      },
+      summon: {
+        title: "Summoning the Apothecary",
+        caption: "Seer's Hut",
+        points: [
+          "She is not on the map by default.",
+          'Build a "Seer\'s Hut": 4 Boards + 3 Cut Stone + 4 Volt Goat Horns.',
+          "Requires the Alchemy Engine, in the Structures tab.",
+        ],
+      },
+      quests: {
+        title: "Quests",
+        points: [
+          "Hand the items to her directly.",
+          "Progress is shared by the whole server. Items on the same line count toward the same total.",
+          "There are 5 minor quests at first. Finishing them all unlocks 4 major quests.",
+        ],
+      },
+      rewards: {
+        title: "Rewards",
+        points: [
+          "Each completed quest: earn 1 Secret Recipe, and the whole server can brew that potion.",
+          "Her shop (after finishing the matching quest):",
+        ],
+      },
+      cauldron: {
+        title: "Magic Cauldron",
+        caption: "Magic Cauldron",
+        points: [
+          "Recipe: 3 Cut Stone + 2 Gold Nuggets + 3 Mana Stones.",
+          "Requires the Prestihatitator, in the Magic / Cooking tab.",
+          "Wrong recipe or a locked potion: the cauldron explodes for -10 health within a radius of 4, without destroying structures.",
+          "Only 1 potion can be active at a time.",
+          "Drinking a new potion replaces the previous effect.",
+        ],
+      },
+      potions: { title: "Potion list", points: [] },
+    },
+    quests: {
+      heal: {
+        name: "Healing",
+        needs: [
+          "50 Butterfly Wings",
+          "10 seeds (Toma Root / Dragon Fruit / Potato)",
+        ],
+      },
+      arcane: {
+        name: "Arcane",
+        needs: ["10 Batilisk Wings", "20 Nightmare Fuel", "10 Dark Petals"],
+      },
+      ward: {
+        name: "Warding",
+        needs: ["10 Driftwood Pieces", "10 Honey", "10 Blue Caps"],
+      },
+      swift: { name: "Swiftness", needs: ["5 Rabbits", "5 Bunny Puffs"] },
+      mind: {
+        name: "Sanity",
+        needs: ["30 Petals", "30 Lune Tree Blossoms / Mourning Glory"],
+      },
+      "great-heal": {
+        name: "Greater Healing",
+        needs: ["1 Nurse Spider", "1 Telltale Heart"],
+      },
+      "great-arcane": {
+        name: "Greater Arcane",
+        needs: ["1 Bat Hat", "3 Pure Horror", "3 Pure Brilliance"],
+      },
+      "great-ward": {
+        name: "Greater Warding",
+        needs: ["10 Living Logs", "20 Honey", "1 Craggy Carapace"],
+      },
+      "great-mind": {
+        name: "Greater Sanity",
+        needs: ["20 Red Caps", "20 Green Caps", "20 Blue Caps", "20 Moon Shrooms"],
+      },
+    },
+  },
 } satisfies FeatureMessages;

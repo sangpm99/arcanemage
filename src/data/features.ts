@@ -1,5 +1,6 @@
 import { img } from "@/lib/cdn";
 import type { ElementId } from "./elements";
+import type { ItemId } from "./items";
 
 /*
  * DỮ LIỆU GỐC CỦA TÍNH NĂNG (icon, màu, ảnh, liên kết).
@@ -9,7 +10,12 @@ import type { ElementId } from "./elements";
  * Chưa upload lên R2 thì trang hiện ảnh thay thế theo `theme`.
  */
 
-export const FEATURE_CATEGORIES = ["worldEvent", "pve", "companion"] as const;
+export const FEATURE_CATEGORIES = [
+  "worldEvent",
+  "pve",
+  "companion",
+  "alchemy",
+] as const;
 export type FeatureCategory = (typeof FEATURE_CATEGORIES)[number];
 
 /** Icon vẽ sẵn trong components/features/FeatureIcon.tsx */
@@ -35,7 +41,17 @@ export type FeatureIconName =
   | "orb"
   | "cancel"
   | "food"
-  | "clock";
+  | "clock"
+  | "flask"
+  | "cauldron"
+  | "quest"
+  | "book"
+  | "hut"
+  | "gift"
+  | "shield"
+  | "feather"
+  | "brain"
+  | "drop";
 
 /** Màu icon của từng ô hiệu ứng */
 export type Tone = "red" | "orange" | "blue" | "green" | "purple" | "gold";
@@ -58,8 +74,32 @@ export type Pet = {
   cooldown: number;
 };
 
-/** Khối quy tắc dạng gạch đầu dòng */
-export type FeatureSection = { id: string; icon: FeatureIconName; tone: Tone };
+/**
+ * Khối quy tắc dạng gạch đầu dòng.
+ * - image: ảnh nhỏ bên phải (tên file trên R2, không đuôi), chưa có ảnh thì hiện icon
+ * - block: nội dung đặc biệt sau gạch đầu dòng (bảng nhiệm vụ, cửa hàng, bảng thuốc)
+ * - span: "tall" chiếm 2 hàng, "full" chiếm cả chiều ngang
+ */
+export type FeatureSection = {
+  id: string;
+  icon: FeatureIconName;
+  tone: Tone;
+  image?: string;
+  block?: "quests" | "shop" | "potions";
+  span?: "tall" | "full";
+};
+
+/** Nhiệm vụ của Dược sư: hoàn thành → mở khóa thuốc `reward` */
+export type Quest = {
+  id: string;
+  tier: "minor" | "major";
+  icon: FeatureIconName;
+  tone: Tone;
+  reward: ItemId;
+};
+
+/** Món bán trong cửa hàng, giá tính bằng Ma thạch */
+export type ShopEntry = { item: ItemId; price: number };
 
 export type FeatureBase = {
   id: string;
@@ -70,6 +110,10 @@ export type FeatureBase = {
   perks: readonly Perk[];
   pets?: readonly Pet[];
   sections?: readonly FeatureSection[];
+  /** số cột của lưới khối quy tắc trên màn rộng (mặc định 3) */
+  sectionCols?: 2 | 3;
+  quests?: readonly Quest[];
+  shop?: readonly ShopEntry[];
 };
 
 /* Thứ tự trong mảng = thứ tự hiển thị */
@@ -139,6 +183,48 @@ export const features = [
       { id: "bond", icon: "heart", tone: "red" },
       { id: "assist", icon: "orb", tone: "purple" },
       { id: "cancel", icon: "cancel", tone: "orange" },
+    ],
+  },
+  {
+    id: "apothecary",
+    icon: "flask",
+    category: "alchemy",
+    theme: "arcane",
+    perks: [
+      { id: "quests", icon: "quest", tone: "purple" },
+      { id: "recipes", icon: "scroll", tone: "gold" },
+      {
+        id: "cauldron",
+        icon: "cauldron",
+        tone: "gold",
+        href: "/items#magic-cauldron",
+      },
+      { id: "variety", icon: "flask", tone: "blue" },
+    ],
+    sectionCols: 2,
+    sections: [
+      { id: "intro", icon: "book", tone: "gold" },
+      { id: "summon", icon: "hut", tone: "gold", image: "seer-hut" },
+      { id: "quests", icon: "quest", tone: "gold", block: "quests", span: "tall" },
+      { id: "rewards", icon: "gift", tone: "gold", block: "shop" },
+      { id: "cauldron", icon: "cauldron", tone: "gold", image: "magic-cauldron" },
+      { id: "potions", icon: "flask", tone: "gold", block: "potions", span: "full" },
+    ],
+    quests: [
+      { id: "heal", tier: "minor", icon: "heart", tone: "red", reward: "health-potion" },
+      { id: "arcane", tier: "minor", icon: "sparkle", tone: "purple", reward: "arcane-elixir" },
+      { id: "ward", tier: "minor", icon: "shield", tone: "blue", reward: "warding-elixir" },
+      { id: "swift", tier: "minor", icon: "feather", tone: "gold", reward: "swiftness-elixir" },
+      { id: "mind", tier: "minor", icon: "brain", tone: "red", reward: "sanity-elixir" },
+      { id: "great-heal", tier: "major", icon: "drop", tone: "red", reward: "greater-health-potion" },
+      { id: "great-arcane", tier: "major", icon: "sparkle", tone: "purple", reward: "greater-arcane-elixir" },
+      { id: "great-ward", tier: "major", icon: "shield", tone: "blue", reward: "greater-warding-elixir" },
+      { id: "great-mind", tier: "major", icon: "brain", tone: "red", reward: "greater-sanity-elixir" },
+    ],
+    shop: [
+      { item: "health-potion", price: 20 },
+      { item: "arcane-elixir", price: 20 },
+      { item: "warding-elixir", price: 20 },
     ],
   },
 ] as const satisfies readonly FeatureBase[];

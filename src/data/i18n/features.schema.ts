@@ -6,19 +6,36 @@ export type PetText = {
   /** đồ ăn ưa thích, mỗi món một phần tử */
   foods: string[];
 };
-export type SectionText = { title: string; points: string[] };
+export type SectionText = {
+  title: string;
+  points: string[];
+  /** nhãn dưới ảnh nhỏ của khối (nếu có ảnh) */
+  caption?: string;
+};
+export type QuestText = {
+  name: string;
+  /** đồ cần nộp, mỗi dòng một phần tử (các món trong một dòng cộng dồn) */
+  needs: string[];
+};
 
-/** Chỉ tính năng có thú mới cần chữ cho thú + khối quy tắc */
-type PetTexts<F> = F extends {
-  pets: readonly { id: infer P extends string }[];
+/* Chỉ tính năng có thú / khối quy tắc / nhiệm vụ mới cần chữ cho phần đó */
+type PetTexts<F> = F extends { pets: readonly { id: infer P extends string }[] }
+  ? { pets: Record<P, PetText> }
+  : unknown;
+type SectionTexts<F> = F extends {
   sections: readonly { id: infer S extends string }[];
 }
-  ? { pets: Record<P, PetText>; sections: Record<S, SectionText> }
+  ? { sections: Record<S, SectionText> }
+  : unknown;
+type QuestTexts<F> = F extends {
+  quests: readonly { id: infer Q extends string }[];
+}
+  ? { quests: Record<Q, QuestText> }
   : unknown;
 
 /**
  * Bắt buộc có đủ chữ cho mọi tính năng, mọi ô hiệu ứng, mọi thú,
- * thiếu là TypeScript báo lỗi.
+ * mọi khối quy tắc, mọi nhiệm vụ, thiếu là TypeScript báo lỗi.
  */
 export type FeatureMessages = {
   [F in FeatureDef as F["id"]]: {
@@ -27,5 +44,7 @@ export type FeatureMessages = {
     tagline: string;
     desc: string;
     perks: Record<F["perks"][number]["id"], PerkText>;
-  } & PetTexts<F>;
+  } & PetTexts<F> &
+    SectionTexts<F> &
+    QuestTexts<F>;
 };

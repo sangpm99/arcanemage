@@ -198,7 +198,7 @@ export default {
         caption: "Vạc ma thuật",
         points: [
           "Chế tạo: 3 Đá cắt + 2 Vàng + 3 Ma thạch.",
-          "Cần Prestihatitator, ở tab Phép thuật / Nấu ăn.",
+          "Cần Shadow Manipulator, ở tab Phép thuật / Nấu ăn.",
           "Sai công thức hoặc chưa mở khóa: vạc nổ, gây -10 máu trong bán kính 4, không phá công trình.",
           "Cùng lúc chỉ 1 thuốc có tác dụng.",
           "Uống thuốc mới sẽ thay thế hiệu ứng cũ.",

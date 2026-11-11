@@ -52,7 +52,6 @@ export const stations = {
   "shadowcraft-plinth": "Shadowcraft Plinth",
   "shadow-manipulator": "Shadow Manipulator",
   "magicians-chest": "Magician's Chest",
-  prestihatitator: "Prestihatitator",
 } as const;
 export type StationId = keyof typeof stations;
 
@@ -468,7 +467,7 @@ export const items = [
     category: "general",
     recipe: {
       kind: "craft",
-      stations: ["prestihatitator"],
+      stations: ["shadow-manipulator"],
       ingredients: [
         { material: "cut-stone", qty: 3 },
         { material: "gold-nugget", qty: 2 },

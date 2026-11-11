@@ -195,7 +195,7 @@ export default {
         caption: "Magic Cauldron",
         points: [
           "Recipe: 3 Cut Stone + 2 Gold Nuggets + 3 Mana Stones.",
-          "Requires the Prestihatitator, in the Magic / Cooking tab.",
+          "Requires the Shadow Manipulator, in the Magic / Cooking tab.",
           "Wrong recipe or a locked potion: the cauldron explodes for -10 health within a radius of 4, without destroying structures.",
           "Only 1 potion can be active at a time.",
           "Drinking a new potion replaces the previous effect.",

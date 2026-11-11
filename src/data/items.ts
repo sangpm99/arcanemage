@@ -27,6 +27,19 @@ export const materials = {
   rope: "Rope",
   "cut-grass": "Cut Grass",
   silk: "Silk",
+  "butterfly-wings": "Butterfly Wings",
+  "toma-root": "Toma Root",
+  "dragon-fruit": "Dragon Fruit",
+  potato: "Potato",
+  "batilisk-wing": "Batilisk Wing",
+  honey: "Honey",
+  "blue-cap": "Blue Cap",
+  "green-cap": "Green Cap",
+  "moon-shroom": "Moon Shroom",
+  "hounds-tooth": "Hound's Tooth",
+  "bunny-puff": "Bunny Puff",
+  petals: "Petals",
+  "telltale-heart": "Telltale Heart",
 } as const;
 export type MaterialId = keyof typeof materials;
 
@@ -45,6 +58,7 @@ export const ITEM_CATEGORIES = [
   "weapon",
   "armor",
   "vehicle",
+  "potion",
   "general",
 ] as const;
 export type ItemCategory = (typeof ITEM_CATEGORIES)[number];
@@ -53,14 +67,20 @@ export type ItemCategory = (typeof ITEM_CATEGORIES)[number];
 export type Ingredient =
   | { item: string; qty?: number } // vật phẩm trong wiki (bấm vào được)
   | { material: MaterialId; qty: number } // nguyên liệu game
+  | { anyOf: MaterialId[]; qty: number } // chọn 1 trong các nguyên liệu ("hoặc")
   | { hp: number }; // tốn máu
 
 export type Recipe = {
-  /** craft: chế tạo · upgrade: nâng cấp trong trạm · apply: dùng vật phẩm lên đồ */
-  kind: "craft" | "upgrade" | "apply";
+  /**
+   * craft: chế tạo · upgrade: nâng cấp trong trạm · apply: dùng vật phẩm lên đồ
+   * · brew: nấu thuốc
+   */
+  kind: "craft" | "upgrade" | "apply" | "brew";
   /** nhiều trạm = chọn 1 trong các trạm ("hoặc") */
   stations?: StationId[];
   ingredients: Ingredient[];
+  /** số lượng thu được mỗi lần làm (bỏ trống = 1) */
+  yield?: number;
 };
 
 export type ItemStats = {
@@ -303,13 +323,132 @@ export const items = [
     },
   },
 
-  /* ===== Tổng hợp ===== */
-  { id: "mana-stone", category: "general" },
+  /* ===== Dược phẩm ===== */
   {
     id: "mana-potion",
-    category: "general",
+    category: "potion",
     recipe: { kind: "craft", stations: ["alchemy-engine"], ingredients: [] },
   },
+  {
+    id: "health-potion",
+    category: "potion",
+    recipe: {
+      kind: "brew",
+      yield: 3,
+      ingredients: [
+        { item: "mana-stone", qty: 1 },
+        { material: "butterfly-wings", qty: 1 },
+        { anyOf: ["toma-root", "dragon-fruit", "potato"], qty: 2 },
+      ],
+    },
+  },
+  {
+    id: "arcane-elixir",
+    category: "potion",
+    recipe: {
+      kind: "brew",
+      yield: 3,
+      ingredients: [
+        { item: "mana-stone", qty: 1 },
+        { material: "batilisk-wing", qty: 1 },
+        { material: "nightmare-fuel", qty: 2 },
+      ],
+    },
+  },
+  {
+    id: "warding-elixir",
+    category: "potion",
+    recipe: {
+      kind: "brew",
+      yield: 3,
+      ingredients: [
+        { item: "mana-stone", qty: 1 },
+        { material: "honey", qty: 1 },
+        { material: "blue-cap", qty: 2 },
+      ],
+    },
+  },
+  {
+    id: "swiftness-elixir",
+    category: "potion",
+    recipe: {
+      kind: "brew",
+      yield: 5,
+      ingredients: [
+        { item: "ancient-stone", qty: 1 },
+        { material: "hounds-tooth", qty: 2 },
+        { material: "bunny-puff", qty: 1 },
+      ],
+    },
+  },
+  {
+    id: "sanity-elixir",
+    category: "potion",
+    recipe: {
+      kind: "brew",
+      ingredients: [
+        { material: "green-cap", qty: 2 },
+        { material: "petals", qty: 2 },
+      ],
+    },
+  },
+  {
+    id: "greater-health-potion",
+    category: "potion",
+    recipe: {
+      kind: "brew",
+      yield: 5,
+      ingredients: [
+        { item: "ancient-stone", qty: 1 },
+        { material: "telltale-heart", qty: 1 },
+        { material: "butterfly-wings", qty: 2 },
+      ],
+    },
+  },
+  {
+    id: "greater-arcane-elixir",
+    category: "potion",
+    recipe: {
+      kind: "brew",
+      yield: 5,
+      ingredients: [
+        { item: "ancient-stone", qty: 1 },
+        { material: "batilisk-wing", qty: 1 },
+        { material: "pure-horror", qty: 1 },
+        { material: "pure-brilliance", qty: 1 },
+      ],
+    },
+  },
+  {
+    id: "greater-warding-elixir",
+    category: "potion",
+    recipe: {
+      kind: "brew",
+      yield: 5,
+      ingredients: [
+        { item: "ancient-stone", qty: 1 },
+        { material: "honey", qty: 1 },
+        { material: "blue-cap", qty: 1 },
+        { material: "moon-shroom", qty: 1 },
+      ],
+    },
+  },
+  {
+    id: "greater-sanity-elixir",
+    category: "potion",
+    recipe: {
+      kind: "brew",
+      yield: 5,
+      ingredients: [
+        { item: "ancient-stone", qty: 1 },
+        { material: "green-cap", qty: 2 },
+        { material: "petals", qty: 1 },
+      ],
+    },
+  },
+
+  /* ===== Tổng hợp ===== */
+  { id: "mana-stone", category: "general" },
   { id: "ancient-seed", category: "general" },
   { id: "ancient-tree", category: "general" },
   { id: "ancient-stone", category: "general" },

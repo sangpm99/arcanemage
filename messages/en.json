@@ -37,6 +37,7 @@
       "weapon": "Weapons",
       "armor": "Armor",
       "vehicle": "Vehicles",
+      "potion": "Potions",
       "general": "General"
     },
     "noResults": "No items match \"{query}\"",
@@ -50,12 +51,14 @@
     "recipe": {
       "craft": "Crafting recipe",
       "upgrade": "Upgrade materials",
-      "apply": "How to upgrade"
+      "apply": "How to upgrade",
+      "brew": "Brewing recipe"
     },
     "station": {
       "craft": "Unlocked at",
       "upgrade": "Upgrade at",
-      "apply": "Use at"
+      "apply": "Use at",
+      "brew": "Brewed at"
     },
     "or": "or",
     "hpCost": "{qty} HP",

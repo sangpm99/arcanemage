@@ -132,6 +132,7 @@ export default function ItemDetail({ item, onSelect }: Props) {
             <Tile
               entry={{ id: item.id, name: item.name, image: item.image }}
               fallback={fallback}
+              qty={recipe.yield}
               active
             />
           </div>
@@ -322,6 +323,24 @@ function Ingredient({
         <span className="mt-1.5 w-[72px] text-center text-[11px] font-semibold leading-tight text-rose-300">
           −{hpLabel("hpCost", { qty: ing.qty })}
         </span>
+      </div>
+    );
+  }
+
+  // Chọn 1 trong các nguyên liệu: gom vào một khung viền đứt, ngăn bằng "hoặc"
+  if (ing.type === "anyOf") {
+    return (
+      <div className="flex items-start gap-1 rounded-xl border border-dashed border-[#d9a441]/45 bg-white/[0.02] px-1.5 pb-1 pt-1.5">
+        {ing.options.map((opt, i) => (
+          <Fragment key={opt.id}>
+            {i > 0 && (
+              <span className="grid h-[60px] place-items-center px-0.5 text-[10px] font-semibold uppercase tracking-wider text-violet-200/60">
+                {hpLabel("or")}
+              </span>
+            )}
+            <Tile entry={opt} fallback="sparkle" qty={ing.qty} />
+          </Fragment>
+        ))}
       </div>
     );
   }

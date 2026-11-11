@@ -7,6 +7,7 @@ import {
   type ItemBase,
   type ItemCategory,
   type ItemStats,
+  type MaterialId,
   type Recipe,
 } from "./items";
 import { characters } from "./characters";
@@ -27,6 +28,7 @@ export type ItemRef = {
 export type ResolvedIngredient =
   | ({ type: "item"; qty?: number } & ItemRef)
   | ({ type: "material"; qty: number } & ItemRef)
+  | { type: "anyOf"; qty: number; options: ItemRef[] }
   | { type: "hp"; qty: number };
 
 export type Item = ItemRef & {
@@ -39,6 +41,8 @@ export type Item = ItemRef & {
     kind: Recipe["kind"];
     stations: ItemRef[];
     ingredients: ResolvedIngredient[];
+    /** số lượng thu được mỗi lần làm, chỉ có khi > 1 */
+    yield?: number;
   };
   unlocksSkills?: ItemBase["unlocksSkills"];
   exclusiveTo?: ItemRef;
@@ -47,6 +51,12 @@ export type Item = ItemRef & {
 };
 
 const dict: Record<Locale, ItemMessages> = { vi, en };
+
+const materialRef = (id: MaterialId): ItemRef => ({
+  id,
+  name: materials[id],
+  image: img(`${id}.webp`),
+});
 
 export function getItems(locale: Locale): Item[] {
   const t = dict[locale] as Record<string, ItemMessages[keyof ItemMessages]>;
@@ -87,15 +97,16 @@ export function getItems(locale: Locale): Item[] {
         ingredients: recipe.ingredients.map((ing): ResolvedIngredient => {
           if ("hp" in ing) return { type: "hp", qty: ing.hp };
           if ("material" in ing)
+            return { type: "material", qty: ing.qty, ...materialRef(ing.material) };
+          if ("anyOf" in ing)
             return {
-              type: "material",
-              id: ing.material,
-              name: materials[ing.material],
-              image: img(`${ing.material}.webp`),
+              type: "anyOf",
               qty: ing.qty,
+              options: ing.anyOf.map(materialRef),
             };
           return { type: "item", qty: ing.qty, ...ref(ing.item) };
         }),
+        ...(recipe.yield && recipe.yield > 1 && { yield: recipe.yield }),
       },
       exclusiveTo: base.exclusiveTo && exclusiveRef(base.exclusiveTo),
       usedIn: list

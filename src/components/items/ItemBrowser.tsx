@@ -34,13 +34,10 @@ export default function ItemBrowser({ items }: { items: Item[] }) {
     [items, q]
   );
   const counts = useMemo(() => {
-    const c: Record<Filter, number> = {
-      all: matches.length,
-      weapon: 0,
-      armor: 0,
-      vehicle: 0,
-      general: 0,
-    };
+    const c = Object.fromEntries([
+      ["all", matches.length],
+      ...ITEM_CATEGORIES.map((cat) => [cat, 0]),
+    ]) as Record<Filter, number>;
     matches.forEach((i) => c[i.category]++);
     return c;
   }, [matches]);

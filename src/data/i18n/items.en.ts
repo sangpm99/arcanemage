@@ -75,17 +75,55 @@ export default {
     ],
   },
 
-  /* ===== General ===== */
-  "mana-stone": {
-    name: "Mana Stone",
-    desc: "A magical material used to craft gear and recharge the Broom Orb.",
-    source:
-      "Dropped by minibosses, bosses, regular monsters during a blood moon, and in dungeons.",
-  },
+  /* ===== Potions ===== */
   "mana-potion": {
     name: "Mana Restoration Potion",
     desc: "Instantly restores some mana and boosts mana regeneration for 240 seconds.",
     notes: ["Crafted in the Refine tab of the Alchemy Engine"],
+  },
+  "health-potion": {
+    name: "Healing Potion",
+    desc: "Instantly restores 40 health, then 1 more health per second for 20 seconds.",
+  },
+  "arcane-elixir": {
+    name: "Arcane Elixir",
+    desc: "Increases magic damage by 20% for 120 seconds.",
+  },
+  "warding-elixir": {
+    name: "Warding Elixir",
+    desc: "Reduces damage taken by 15% for 120 seconds.",
+  },
+  "swiftness-elixir": {
+    name: "Swiftness Elixir",
+    desc: "Increases movement speed by 15% for 120 seconds.",
+  },
+  "sanity-elixir": {
+    name: "Sanity Elixir",
+    desc: "Instantly restores 50 sanity.",
+  },
+  "greater-health-potion": {
+    name: "Greater Healing Elixir",
+    desc: "Instantly restores 80 health, then 2 more health per second for 60 seconds.",
+  },
+  "greater-arcane-elixir": {
+    name: "Greater Arcane Elixir",
+    desc: "Increases magic damage by 35% for 180 seconds.",
+  },
+  "greater-warding-elixir": {
+    name: "Greater Warding Elixir",
+    desc: "Reduces damage taken by 25% for 180 seconds.",
+  },
+  "greater-sanity-elixir": {
+    name: "Greater Sanity Elixir",
+    desc: "Instantly restores 100 sanity, then 2 more sanity per second for 20 seconds.",
+  },
+
+  /* ===== General ===== */
+  "mana-stone": {
+    name: "Mana Stone",
+    desc: "A magical material used to craft gear, brew potions and recharge the Broom Orb.",
+    source:
+      "Dropped by minibosses, bosses, regular monsters during a blood moon, and in dungeons.",
   },
   "ancient-seed": {
     name: "Ancient Seed",

@@ -37,6 +37,7 @@
       "weapon": "Vũ khí",
       "armor": "Giáp",
       "vehicle": "Phương tiện",
+      "potion": "Dược phẩm",
       "general": "Tổng hợp"
     },
     "noResults": "Không tìm thấy vật phẩm nào khớp với \"{query}\"",
@@ -50,12 +51,14 @@
     "recipe": {
       "craft": "Công thức chế tạo",
       "upgrade": "Nguyên liệu nâng cấp",
-      "apply": "Cách nâng cấp"
+      "apply": "Cách nâng cấp",
+      "brew": "Công thức nấu"
     },
     "station": {
       "craft": "Mở khóa tại",
       "upgrade": "Nâng cấp tại",
-      "apply": "Dùng tại"
+      "apply": "Dùng tại",
+      "brew": "Nấu tại"
     },
     "or": "hoặc",
     "hpCost": "{qty} máu",

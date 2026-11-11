@@ -75,17 +75,55 @@ export default {
     ],
   },
 
-  /* ===== Tổng hợp ===== */
-  "mana-stone": {
-    name: "Ma thạch",
-    desc: "Nguyên liệu ma thuật dùng để chế tạo trang bị và sạc Ngọc chổi.",
-    source:
-      "Rơi ra khi giết miniboss, boss, quái thường vào đêm trăng máu hoặc trong hầm ngục.",
-  },
+  /* ===== Dược phẩm ===== */
   "mana-potion": {
     name: "Thuốc hồi phục mana",
     desc: "Hồi ngay một lượng mana và tăng tốc độ hồi mana trong 240 giây.",
     notes: ["Chế tạo trong tab Tinh chế của Alchemy Engine"],
+  },
+  "health-potion": {
+    name: "Thuốc hồi máu",
+    desc: "Hồi ngay 40 máu, sau đó hồi thêm 1 máu mỗi giây trong 20 giây.",
+  },
+  "arcane-elixir": {
+    name: "Ma Lực Dược",
+    desc: "Tăng 20% sát thương phép trong 120 giây.",
+  },
+  "warding-elixir": {
+    name: "Hộ Thể Dược",
+    desc: "Giảm 15% sát thương nhận vào trong 120 giây.",
+  },
+  "swiftness-elixir": {
+    name: "Linh Tốc Dược",
+    desc: "Tăng 15% tốc độ chạy trong 120 giây.",
+  },
+  "sanity-elixir": {
+    name: "Tâm Trí Dược",
+    desc: "Hồi ngay 50 tinh thần.",
+  },
+  "greater-health-potion": {
+    name: "Đại Huyết Dược",
+    desc: "Hồi ngay 80 máu, sau đó hồi thêm 2 máu mỗi giây trong 60 giây.",
+  },
+  "greater-arcane-elixir": {
+    name: "Đại Ma Lực Dược",
+    desc: "Tăng 35% sát thương phép trong 180 giây.",
+  },
+  "greater-warding-elixir": {
+    name: "Đại Hộ Thể Dược",
+    desc: "Giảm 25% sát thương nhận vào trong 180 giây.",
+  },
+  "greater-sanity-elixir": {
+    name: "Đại Tâm Trí Dược",
+    desc: "Hồi ngay 100 tinh thần, sau đó hồi thêm 2 tinh thần mỗi giây trong 20 giây.",
+  },
+
+  /* ===== Tổng hợp ===== */
+  "mana-stone": {
+    name: "Ma thạch",
+    desc: "Nguyên liệu ma thuật dùng để chế tạo trang bị, nấu thuốc và sạc Ngọc chổi.",
+    source:
+      "Rơi ra khi giết miniboss, boss, quái thường vào đêm trăng máu hoặc trong hầm ngục.",
   },
   "ancient-seed": {
     name: "Hạt giống cổ ngữ",

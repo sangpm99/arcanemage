@@ -27,11 +27,19 @@ const PATHS = {
       <path d="M5 19l2-2" />
     </>
   ),
-  general: (
+  potion: (
     <>
       <path d="M10 2v7.5a2 2 0 0 1-.2.9L4.7 20.6a1 1 0 0 0 .9 1.4h12.8a1 1 0 0 0 .9-1.4l-5.1-10.2a2 2 0 0 1-.2-.9V2" />
       <path d="M8.5 2h7" />
       <path d="M7 16h10" />
+    </>
+  ),
+  /* rương: nhóm Tổng hợp */
+  general: (
+    <>
+      <path d="M3 10a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
+      <path d="M3 11h18" />
+      <rect x="10" y="9" width="4" height="5" rx="1" />
     </>
   ),
   search: (
@@ -114,5 +122,6 @@ export const CATEGORY_ICON: Record<ItemCategory, IconName> = {
   weapon: "weapon",
   armor: "armor",
   vehicle: "vehicle",
+  potion: "potion",
   general: "general",
 };

@@ -197,7 +197,7 @@ export default {
         // Trung cấp
         petrify: {
           name: "Petrify",
-          desc: "Biến quái trong khu vực chỉ định thành đá trong 5 giây, khiến chúng không thể di chuyển hay hành động. Đá không vỡ khi bị tấn công.",
+          desc: "Biến quái trong khu vực chỉ định thành đá, khiến chúng không thể di chuyển hay hành động: quái thường trong 5 giây, boss trong 1 giây. Đá không vỡ khi bị tấn công.",
         },
         provoke: {
           name: "Provoke",
@@ -324,7 +324,7 @@ export default {
         "Mang một gấu bông nhỏ chống lại quái vật",
         "Mang một chiếc bật lửa",
       ],
-      buffs: [],
+      buffs: ["Gấu bông được tăng tốc độ di chuyển và lượng dame"],
     },
     wolfgang: {
       traits: [

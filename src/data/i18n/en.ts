@@ -197,7 +197,7 @@ export default {
         // Intermediate
         petrify: {
           name: "Petrify",
-          desc: "Turn enemies in the target area to stone for 5 seconds, preventing them from moving or acting. The stone does not break when attacked.",
+          desc: "Turn enemies in the target area to stone, preventing them from moving or acting: 5 seconds for regular monsters, 1 second for bosses. The stone does not break when attacked.",
         },
         provoke: {
           name: "Provoke",
@@ -324,7 +324,7 @@ export default {
         "Carries a teddy bear that helps fend off monsters.",
         "Starts with a lighter.",
       ],
-      buffs: [],
+      buffs: ["Her teddy bear gains increased movement speed and damage."],
     },
     wolfgang: {
       traits: [
